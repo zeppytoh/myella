@@ -1,6 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/landing/Hero.astro";
+import FeatureOne from "../components/landing/FeatureOne.astro";
+import FeatureTwo from "../components/landing/FeatureTwo.astro";
+import FeatureThree from "../components/landing/FeatureThree.astro";
+import Cta from "../components/landing/Cta.astro";
+import FeatureFour from "../components/landing/FeatureFour.astro";
+import Testimonial from "../components/landing/Testimonial.astro";
+import Pricing from "../components/landing/Pricing.astro";
+import Faq from "../components/landing/Faq.astro";
+import Footer from "../components/global/Footer.astro";
 import { AstroSeo } from "@astrolib/seo";
 ---
 
@@ -8,7 +17,7 @@ import { AstroSeo } from "@astrolib/seo";
 Use AstroSeo in all the pages you want different Seo than the index page
 -->
 <AstroSeo
-  title="Unwrapped starter kit"
+  title="Flabbergasted || home"
   description="Your site description goes here"
   canonical="https://www.supremeuikits.com"
   openGraph={{
@@ -43,4 +52,13 @@ Use AstroSeo in all the pages you want different Seo than the index page
 />
 <BaseLayout>
   <Hero />
+  <FeatureOne />
+  <FeatureTwo />
+  <FeatureThree />
+  <Cta />
+  <FeatureFour />
+  <Testimonial />
+  <Pricing />
+  <Faq />
+  <Footer />
 </BaseLayout>
