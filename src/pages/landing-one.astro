@@ -1,18 +1,21 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/landing/Hero.astro";
-import Features from "../components/landing/Features.astro";
-import Screenshots from "../components/landing/Screenshots.astro";
-import Faq from "../components/landing/Faq.astro";
+import FeatureOne from "../components/features/FeatureOne.astro";
+import FeatureTwo from "../components/features/FeatureTwo.astro";
+import FeatureThree from "../components/features/FeatureThree.astro";
+import Cta from "../components/landing/Cta.astro";
+import FeatureFour from "../components/features/FeatureFour.astro";
+import Testimonial from "../components/landing/Testimonial.astro";
+import Pricing from "../components/landing/Pricing.astro";
 import FooterOne from "../components/global/FooterOne.astro";
 import { AstroSeo } from "@astrolib/seo";
 ---
-
 <!---
 Use AstroSeo in all the pages you want different Seo than the index page
 -->
 <AstroSeo
-  title="Flabbergasted || home"
+  title="Flabbergasted || Landing One"
   description="Your site description goes here"
   canonical="https://www.supremeui.dev"
   openGraph={{
@@ -47,8 +50,12 @@ Use AstroSeo in all the pages you want different Seo than the index page
 />
 <BaseLayout>
   <Hero />
-  <Features />
-  <Screenshots />
-  <Faq />
+  <FeatureOne />
+  <FeatureTwo />
+  <FeatureThree />
+  <Cta />
+  <FeatureFour />
+  <Testimonial />
+  <Pricing />
   <FooterOne />
 </BaseLayout>

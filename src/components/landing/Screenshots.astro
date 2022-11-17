@@ -1,0 +1,40 @@
+---
+import one from "/public/placeholders/one.png";
+import two from "/public/placeholders/two.png";
+import three from "/public/placeholders/three.png";
+import four from "/public/placeholders/four.png";
+
+import { Image } from "@astrojs/image/components";
+---
+
+<section class="bg-yellow-500 border-b-2 border-black">
+  <div class="relative items-center w-full mx-auto 2xl:max-w-7xl p-8 lg:p-20">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6">
+      <div>
+        <div
+          class="px-4 overflow-hidden bg-white pt-6 shadow-large shadow-black border-2 border-black"
+        >
+          <Image class="border-2 border-black border-b-0" src={one} alt="#" />
+        </div>
+      </div><div>
+        <div
+          class="px-4 overflow-hidden bg-white pt-6 shadow-large shadow-black border-2 border-black"
+        >
+          <Image class="border-2 border-black border-b-0" src={two} alt="#" />
+        </div>
+      </div><div>
+        <div
+          class="px-4 overflow-hidden bg-white pt-6 shadow-large shadow-black border-2 border-black"
+        >
+          <Image class="border-2 border-black border-b-0" src={three} alt="#" />
+        </div>
+      </div><div>
+        <div
+          class="px-4 overflow-hidden bg-white pt-6 shadow-large shadow-black border-2 border-black"
+        >
+          <Image class="border-2 border-black border-b-0" src={four} alt="#" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

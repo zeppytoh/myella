@@ -142,6 +142,11 @@ module.exports = {
       backgroundImage: (theme) => ({
         screens: "url('/path-to/image.png')",
       }),
+      boxShadow: {
+        small: "3px 3px",
+        DEFAULT: "5px 5px",
+        large: "10px 10px",
+      },
 
       colors: {
         orange: {
@@ -155,6 +160,18 @@ module.exports = {
           700: "#B5310C",
           800: "#772008",
           900: "#3E1104",
+        },
+        green: {
+          50: "#E5FAEE",
+          100: "#CBF6DE",
+          200: "#98ECBC",
+          300: "#64E39B",
+          400: "#2CD877",
+          500: "#1FA95B",
+          600: "#198648",
+          700: "#136738",
+          800: "#0D4525",
+          900: "#062213",
         },
         cyan: {
           50: "#f7fcfd",
