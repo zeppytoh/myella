@@ -1,9 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
+import Navigation from "../components/global/Navigation.astro";
+import CtaOne from "../components/ctas/CtaOne.astro";
+import CtaTwo from "../components/ctas/CtaTwo.astro";
+import CtaThree from "../components/ctas/CtaThree.astro";
+import FooterOne from "../components/global/FooterOne.astro";
 import { AstroSeo } from "@astrolib/seo";
 ---
-
 <!---
 Use AstroSeo in all the pages you want different Seo than the index page
 -->
@@ -42,4 +45,9 @@ Use AstroSeo in all the pages you want different Seo than the index page
   }}
 />
 <BaseLayout>
+  <Navigation />
+  <CtaOne />
+  <CtaTwo />
+  <CtaThree />
+  <FooterOne />
 </BaseLayout>

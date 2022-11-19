@@ -149,6 +149,7 @@ module.exports = {
       },
 
       colors: {
+        white: "#efede6",
         orange: {
           50: "#FEF0EC",
           100: "#FDE4DE",
@@ -216,5 +217,8 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+  ],
 };

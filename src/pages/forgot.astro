@@ -1,5 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Navigation from "../components/global/Navigation.astro";
+import ForgotPassword from "../components/forms/ForgotPassword.astro";
+import FooterOne from "../components/global/FooterOne.astro";
 
 import { AstroSeo } from "@astrolib/seo";
 ---
@@ -8,7 +11,7 @@ import { AstroSeo } from "@astrolib/seo";
 Use AstroSeo in all the pages you want different Seo than the index page
 -->
 <AstroSeo
-  title="Forgot password"
+  title="Forgot Password"
   description="Your site description goes here"
   canonical="https://www.supremeui.dev"
   openGraph={{
@@ -42,4 +45,8 @@ Use AstroSeo in all the pages you want different Seo than the index page
   }}
 />
 <BaseLayout>
+  <Navigation />
+  <ForgotPassword />
+
+  <FooterOne />
 </BaseLayout>

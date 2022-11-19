@@ -1,5 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Navigation from "../components/global/Navigation.astro";
+import Error404 from "../components/infopages/Error404.astro";
+import FooterOne from "../components/global/FooterOne.astro";
 
 import { AstroSeo } from "@astrolib/seo";
 ---
@@ -42,4 +45,8 @@ Use AstroSeo in all the pages you want different Seo than the index page
   }}
 />
 <BaseLayout>
+  <Navigation />
+  <Error404 />
+
+  <FooterOne />
 </BaseLayout>
