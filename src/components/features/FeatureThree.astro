@@ -1,3 +1,9 @@
+---
+import switches from "/public/images/switches.png";
+import checkboxes from "/public/images/checkboxes.png";
+import { Image } from "@astrojs/image/components";
+---
+
 <section
   aria-labelledby="feature-three"
   id="feature-three"
@@ -24,6 +30,7 @@
     </div>
   </div>
 </section>
+
 <section class="relative flex items-center w-full border-b-2 border-black">
   <div
     class="relative items-center w-full mx-auto 2xl:max-w-7xl divide-y-2 divide-black"
@@ -42,7 +49,7 @@
           </div>
         </div>
         <div class="w-full aspect-square bg-black h-full">
-          <img alt="hero" src="./public/images/switches.png" />
+          <Image class="border-b-0 object-cover" src={switches} alt="#" />
         </div>
       </div>
       <div class="grid grid-cols-1 divide-y-2 divide-black">
@@ -56,7 +63,7 @@
           </div>
         </div>
         <div class="w-full aspect-square lg:mt-0 bg-white h-full">
-          <img alt="hero" src="./public/images/checkboxes.png" />
+          <Image class="border-b-0 object-cover" src={checkboxes} alt="#" />
         </div>
       </div>
     </div>

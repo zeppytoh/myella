@@ -1,3 +1,11 @@
+---
+import switches from "/public/images/switches.png";
+import checkboxes from "/public/images/checkboxes.png";
+import balls from "/public/images/balls.png";
+import buttons from "/public/images/buttons.png";
+import { Image } from "@astrojs/image/components";
+---
+
 <section class="bg-white">
   <div class="relative items-center w-full mx-auto 2xl:max-w-7xl p-8 lg:p-20">
     <section class="grid grid-cols-1 items-baseline gap-y-10 gap-6">
@@ -21,11 +29,7 @@
           class="flex flex-col overflow-hidden shadow-large border-2 divide-y-2 divide-black border-black hover:shadow-none duration-200"
         >
           <div class="flex-shrink-0 bg-orange-500">
-            <img
-              class="w-full h-64 object-cover"
-              src="./public/images/switches.png"
-              alt=""
-            />
+            <Image class="w-full h-64 object-cover" src={switches} alt="#" />
           </div>
           <div class="flex flex-1 flex-col justify-between bg-white p-6">
             <div class="flex-1">
@@ -36,7 +40,6 @@
                 <span aria-hidden="true">&middot;</span>
                 <span>6 min read</span>
               </div>
-
               <a href="/blog-post" class="mt-2 block">
                 <p class="text-xl lg:text-3xl text-black">
                   Behind Flabbergasted New Design System
@@ -58,11 +61,7 @@
           class="flex flex-col overflow-hidden shadow-large border-2 divide-y-2 divide-black border-black hover:shadow-none duration-200"
         >
           <div class="flex-shrink-0 bg-green-500">
-            <img
-              class="w-full h-64 object-cover"
-              src="./public/images/checkboxes.png"
-              alt=""
-            />
+            <Image class="w-full h-64 object-cover" src={balls} alt="#" />
           </div>
           <div class="flex flex-1 flex-col justify-between bg-white p-6">
             <div class="flex-1">
@@ -73,7 +72,6 @@
                 <span aria-hidden="true">&middot;</span>
                 <span>6 min read</span>
               </div>
-
               <a href="/blog-post" class="mt-2 block">
                 <p class="text-xl lg:text-3xl text-black">
                   How to use Flabbergasted free email marketing to build an
@@ -96,11 +94,7 @@
           class="flex flex-col overflow-hidden shadow-large border-2 divide-y-2 divide-black border-black hover:shadow-none duration-200"
         >
           <div class="flex-shrink-0 bg-cyan-500">
-            <img
-              class="w-full h-64 object-cover"
-              src="./public/images/buttons.png"
-              alt=""
-            />
+            <Image class="w-full h-64 object-cover" src={checkboxes} alt="#" />
           </div>
           <div class="flex flex-1 flex-col justify-between bg-white p-6">
             <div class="flex-1">
@@ -111,7 +105,6 @@
                 <span aria-hidden="true">&middot;</span>
                 <span>6 min read</span>
               </div>
-
               <a href="/blog-post" class="mt-2 block">
                 <p class="text-xl lg:text-3xl text-black">
                   How to earn a side income selling digital products
@@ -134,11 +127,7 @@
           class="flex flex-col overflow-hidden shadow-large border-2 divide-y-2 divide-black border-black hover:shadow-none duration-200"
         >
           <div class="flex-shrink-0 bg-yellow-500">
-            <img
-              class="w-full h-64 object-cover"
-              src="./public/images/balls.png"
-              alt=""
-            />
+            <Image class="w-full h-64 object-cover" src={buttons} alt="#" />
           </div>
           <div class="flex flex-1 flex-col justify-between bg-white p-6">
             <div class="flex-1">
@@ -149,7 +138,6 @@
                 <span aria-hidden="true">&middot;</span>
                 <span>6 min read</span>
               </div>
-
               <a href="/blog-post" class="mt-2 block">
                 <p class="text-xl lg:text-3xl text-black">
                   53 free Procreate brushes you can download on Flabbergasted

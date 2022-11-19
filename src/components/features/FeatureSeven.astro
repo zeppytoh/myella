@@ -1,3 +1,7 @@
+---
+import switches from "/public/images/switches.png";
+import { Image } from "@astrojs/image/components";
+---
 <section
   aria-labelledby="feature-five"
   id="feature-five"
@@ -22,7 +26,6 @@
     </div>
   </div>
 </section>
-
 <section
   class="relative flex items-center w-full border-b-2 border-black bg-black"
   aria-labelledby="feature-five"
@@ -58,7 +61,6 @@
                     fill="currentColor"></path>
                 </svg>
               </span>
-
               Breathtakingly fast
             </p>
             <p class="tracking-tight text-white">
@@ -84,7 +86,6 @@
                     fill="currentColor"></path>
                 </svg>
               </span>
-
               Built for your keyboard
             </p>
             <p class="tracking-tight text-white">
@@ -111,7 +112,6 @@
                     fill="currentColor"></path>
                 </svg>
               </span>
-
               Meet your command line
             </p>
             <p class="tracking-tight text-white">
@@ -121,9 +121,8 @@
         </div>
       </div>
       <div class="block w-full aspect-square lg:mt-0 bg-yellow-500 h-full">
-        <img alt="hero" src="./public/images/switches.png" />
+        <Image class="object-cover" src={switches} alt="#" />
       </div>
-
       <div
         class="relative p-8 lg:px-20 items-center gap-12 h-full lg:inline-flex bg-white"
       >

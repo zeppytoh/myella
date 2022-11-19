@@ -1,3 +1,9 @@
+---
+import buttons from "/public/images/buttons.png";
+
+import { Image } from "@astrojs/image/components";
+---
+
 <section
   class="relative flex items-center w-full border-b-2 border-black"
   aria-labelledby="feature-one"
@@ -49,7 +55,7 @@
         </div>
       </div>
       <div class="block w-full aspect-square lg:mt-0 bg-cyan-500 h-full">
-        <img alt="hero" src="./public/images/buttons.png" />
+        <Image class=" object-cover" src={buttons} alt="#" />
       </div>
     </div>
   </div>
