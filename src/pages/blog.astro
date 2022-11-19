@@ -1,14 +1,16 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Navigation from "../components/global/Navigation.astro";
+import Entries from "../components/blog/Entries.astro";
 
+import FooterOne from "../components/global/FooterOne.astro";
 import { AstroSeo } from "@astrolib/seo";
 ---
-
 <!---
 Use AstroSeo in all the pages you want different Seo than the index page
 -->
 <AstroSeo
-  title="Blog post 02"
+  title="Blog"
   description="Your site description goes here"
   canonical="https://www.supremeui.dev"
   openGraph={{
@@ -42,4 +44,8 @@ Use AstroSeo in all the pages you want different Seo than the index page
   }}
 />
 <BaseLayout>
+  <Navigation />
+  <Entries />
+
+  <FooterOne />
 </BaseLayout>
