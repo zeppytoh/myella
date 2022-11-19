@@ -41,4 +41,4 @@ All commands are run from the root of the project, from a terminal:
 
 ## Want to learn more?
 
-Feel free to check Astroäs [documentation](https://docs.astro.build)
+Feel free to check Astros [documentation](https://docs.astro.build)

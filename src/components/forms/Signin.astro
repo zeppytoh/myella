@@ -4,13 +4,13 @@ import checkboxes from "/public/images/checkboxes.png";
 import { Image } from "@astrojs/image/components";
 ---
 
-<section class="bg-orange-500">
-  <div
-    class="relative justify-center max-h-full overflow-hidden lg:px-0 md:px-12 grid lg:grid-cols-2"
-  >
-    <div
-      class="relative z-10 flex flex-col flex-1 px-4 py-10 bg-orange-500 lg:py-24 md:flex-none md:px-28 sm:justify-center"
+<section>
+  <div class="2xl:max-w-7xl mx-auto 2xl:border-x-2 border-black">
+    <div class="relative justify-center max-h-full overflow-hidden lg:px-0 md:px-12 grid lg:grid-cols-2 lg:divide-x-2 divide-black"
     >
+      <div
+        class="relative z-10 flex flex-col flex-1 px-4 py-10 bg-orange-500 lg:py-24 md:flex-none md:px-28 sm:justify-center"
+      >
       <div class="w-full mx-auto md:px-0 sm:px-4">
         <div class="flex flex-col">
           <div>
@@ -146,5 +146,6 @@ import { Image } from "@astrojs/image/components";
         <Image class="object-center w-full h-auto" src={checkboxes} alt="#" />
       </div>
     </div>
+  </div>
   </div>
 </section>
