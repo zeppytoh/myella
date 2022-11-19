@@ -1,3 +1,9 @@
+---
+import switches from "/public/images/switches.png";
+
+import { Image } from "@astrojs/image/components";
+---
+
 <section class="bg-yellow-500">
   <div
     class="relative justify-center max-h-full overflow-hidden lg:px-0 md:px-12 grid lg:grid-cols-2"
@@ -156,19 +162,8 @@
       </div>
     </div>
     <div class="hidden bg-white lg:block lg:flex-1 lg:relative sm:contents">
-      <div
-        class="absolute inset-0 object-cover w-full h-full bg-black"
-        alt="#"
-        height="1866"
-        width="1664"
-      >
-        <img
-          class="object-center w-full h-auto"
-          src="./public/images/switches.png"
-          alt=""
-          width="1310"
-          height="873"
-        />
+      <div class="absolute inset-0 object-cover w-full h-full bg-black">
+        <Image class="object-center w-full h-auto" src={switches} alt="#" />
       </div>
     </div>
   </div>
