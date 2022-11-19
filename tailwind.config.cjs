@@ -213,7 +213,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Source Sans Pro", ...defaultTheme.fontFamily.sans],
-        mono: ["Space Mono", ...defaultTheme.fontFamily.mono],
+       
       },
     },
   },
