@@ -1,40 +1,30 @@
----
-import one from "/public/placeholders/one.png";
-import two from "/public/placeholders/two.png";
-import three from "/public/placeholders/three.png";
-import four from "/public/placeholders/four.png";
-
-import { Image } from "@astrojs/image/components";
----
-
-<section class="bg-yellow-500 border-b-2 border-black" aria-labelledby="screenshot" id="screenshot">
+<section class="border-black" aria-labelledby="screenshot" id="screenshot">
   <div class="relative items-center w-full mx-auto 2xl:max-w-7xl">
     <div
-      class="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6 p-8 lg:p-20 2xl:px-0"
-    >
+      class="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-6 p-8 lg:p-20 2xl:px-0">
       <div>
         <div
-          class="px-4 overflow-hidden bg-white pt-6 shadow-large shadow-black border-2 border-black"
-        >
-          <Image class="border-2 border-black border-b-0" src={one} alt="#" />
+          class="px-4 overflow-hidden pt-6 shadow rounded-xl shadow-black border-2 border-black">
+          <img class="border-b-0 rounded-t-lg" src="/images/one.png" alt="#" />
         </div>
       </div><div>
         <div
-          class="px-4 overflow-hidden bg-white pt-6 shadow-large shadow-black border-2 border-black"
-        >
-          <Image class="border-2 border-black border-b-0" src={two} alt="#" />
+          class="px-4 overflow-hidden pt-6 shadow rounded-xl shadow-black border-2 border-black">
+          <img class="border-b-0 rounded-t-lg" src="/images/two.png" alt="#" />
         </div>
       </div><div>
         <div
-          class="px-4 overflow-hidden bg-white pt-6 shadow-large shadow-black border-2 border-black"
-        >
-          <Image class="border-2 border-black border-b-0" src={three} alt="#" />
+          class="px-4 overflow-hidden pt-6 shadow rounded-xl shadow-black border-2 border-black">
+          <img
+            class="border-b-0 rounded-t-lg"
+            src="/images/three.png"
+            alt="#"
+          />
         </div>
       </div><div>
         <div
-          class="px-4 overflow-hidden bg-white pt-6 shadow-large shadow-black border-2 border-black"
-        >
-          <Image class="border-2 border-black border-b-0" src={four} alt="#" />
+          class="px-4 overflow-hidden pt-6 shadow rounded-xl shadow-black border-2 border-black">
+          <img class="border-b-0 rounded-t-lg" src="/images/four.png" alt="#" />
         </div>
       </div>
     </div>

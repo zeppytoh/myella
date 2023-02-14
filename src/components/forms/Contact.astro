@@ -1,10 +1,8 @@
-<section class="bg-orange-500" aria-labelledby="contact" id="contact">
+<section class="bg-red-500" aria-labelledby="contact" id="contact">
   <div
-    class="relative justify-center max-h-full overflow-hidden lg:px-0 md:px-12"
-  >
+    class="relative justify-center max-h-full overflow-hidden lg:px-0 md:px-12">
     <div
-      class="relative z-10 flex flex-col flex-1 px-4 py-10 bg-yellow-500 lg:py-24 md:flex-none md:px-28 sm:justify-center"
-    >
+      class="relative z-10 flex flex-col flex-1 px-4 py-10 bg-yellow-500 lg:py-32 md:flex-none md:px-28 sm:justify-center">
       <div class="w-full mx-auto md:px-0 sm:px-4 max-w-xl">
         <div class="flex flex-col">
           <div>
@@ -20,13 +18,14 @@
           />
           <input type="hidden" name="_redirect" value="#" />
           <div class="space-y-6">
-            <div class="border-2 border-black divide-y-2 divide-black shadow">
+            <div
+              class="border-2 border-black divide-y-2 divide-black shadow-large rounded-xl overflow-hidden">
               <div>
                 <label name="name" class="sr-only"> Your name</label>
                 <input
                   type="text"
                   placeholder="Your name"
-                  class="block w-full px-3 py-4 text-xl text-black border-2 border-transparent appearance-none placeholder-black border-black focus:border-black focus:bg-white focus:outline-none focus:ring-black sm:text-sm"
+                  class="block w-full px-3 py-4 text-xl text-black border-2 border-transparent appearance-none placeholder-black border-black focus:border-black focus:bg-lila-500 focus:outline-none focus:ring-black sm:text-sm"
                 />
               </div>
               <div>
@@ -34,7 +33,7 @@
                 <input
                   type="text"
                   placeholder="company name"
-                  class="block w-full px-3 py-4 text-xl text-black border-2 border-transparent appearance-none placeholder-black border-black focus:border-black focus:bg-white focus:outline-none focus:ring-black sm:text-sm"
+                  class="block w-full px-3 py-4 text-xl text-black border-2 border-transparent appearance-none placeholder-black border-black focus:border-black focus:bg-lila-500 focus:outline-none focus:ring-black sm:text-sm"
                 />
               </div>
               <div>
@@ -42,7 +41,7 @@
                 <input
                   type="text"
                   placeholder="email"
-                  class="block w-full px-3 py-4 text-xl text-black border-2 border-transparent appearance-none placeholder-black border-black focus:border-black focus:bg-white focus:outline-none focus:ring-black sm:text-sm"
+                  class="block w-full px-3 py-4 text-xl text-black border-2 border-transparent appearance-none placeholder-black border-black focus:border-black focus:bg-lila-500 focus:outline-none focus:ring-black sm:text-sm"
                 />
               </div>
               <div>
@@ -50,7 +49,7 @@
                   <label class="sr-only" name="message">Project details</label>
                   <div>
                     <textarea
-                      class="block w-full px-3 py-4 text-xl text-black border-2 border-transparent appearance-none placeholder-black border-black focus:border-black focus:bg-white focus:outline-none focus:ring-black sm:text-sm"
+                      class="block w-full px-3 py-4 text-xl text-black border-2 border-transparent appearance-none placeholder-black border-black focus:border-black focus:bg-lila-500 focus:outline-none focus:ring-black sm:text-sm"
                       placeholder="What are you working on?"
                       rows="4"></textarea>
                   </div>
@@ -58,22 +57,11 @@
               </div>
             </div>
 
-            <div class="col-span-full">
+            <div class="flex-col flex gap-3 mt-10 sm:flex-row">
               <a
-                href="/overview"
-                class="relative inline-block px-4 lg:px-8 lg:py-4 py-2 group w-full text-center"
+                class="text-black items-center shadow-[5px_5px_black] inline-flex px-6 focus:outline-none justify-center text-center bg-white border-black ease-in-out hover:text-white transform transition hover:shadow-none border-2 duration-200 hover:bg-black py-3 rounded-xl w-full"
+                href="/overview">Submit</a
               >
-                <span
-                  class="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"
-                ></span>
-                <span
-                  class="absolute inset-0 w-full h-full bg-black border-2 border-black group-hover:bg-white"
-                ></span>
-                <span
-                  class="relative lg:text-2xl text-white group-hover:text-black"
-                  >Submit
-                </span>
-              </a>
             </div>
           </div>
         </form>
