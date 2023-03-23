@@ -1,0 +1,52 @@
+---
+import { reviews } from "../../data/reviews.json";
+---
+
+<section
+  class="relative flex items-center w-full border-b-2 border-black bg-violet-300"
+  aria-labelledby="testimonial"
+  id="testimonial">
+  <div
+    class="relative items-center w-full mx-auto 2xl:max-w-7xl 2xl:border-x-2 border-black">
+    <div class="relative p-8 lg:p-20 items-center gap-12 h-full">
+      <div class="max-w-xl mx-auto text-center">
+        <h2 class="text-3xl lg:text-5xl tracking-tight text-black">
+          Our beloved customers
+        </h2>
+      </div>
+      <ul class="space-y-6 w-full mt-16" role="list">
+        {
+          reviews.slice(0, 4).map((template) => (
+            <>
+              <li class="p-4 lg:p-8 border-2 border-black shadow rounded-xl bg-white">
+                <div class="grid items-start grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-24">
+                  <div class="order-last lg:col-span-2">
+                    <p class="text-black xl:text-2xl tracking-tight ">
+                      "{template.text}"
+                    </p>
+                  </div>
+                  <div class="inline-flex items-center gap-3">
+                    <div class="flex-shrink-0">
+                      <img
+                        alt="a picture of {template.name}"
+                        src={template.image}
+                        class="w-10 h-10 rounded-full lg:h-16 lg:w-16 grayscale"
+                      />
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <span class="absolute inset-0" aria-hidden="true" />
+                      <p class="text-sm font-semibold text-black">
+                        {template.name}
+                      </p>
+                      <p class="text-sm text-black">{template.work}</p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

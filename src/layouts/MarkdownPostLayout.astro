@@ -1,0 +1,131 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Navigation from "../components/global/Navigation.astro";
+import Footer from "../components/global/Footer.astro";
+const { frontmatter } = Astro.props;
+import { AstroSeo } from "@astrolib/seo";
+---
+
+<AstroSeo
+  title={frontmatter.title}
+  description={frontmatter.description}
+  canonical="https://www.lexingtonthemes.com"
+  openGraph={{
+    url: "https://www.lexingtonthemes.com",
+    title: "Title}",
+    description: "Description",
+    images: [
+      {
+        url: "https://www.lexingtonthemes.com/opengraph/social-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Social open graph",
+        type: "image/jpeg",
+      },
+      {
+        url: "https://www.lexingtonthemes.com/opengraph/twitter-og.jpg",
+        width: 4096,
+        height: 4096,
+        alt: "Twitter open graph",
+        type: "image/jpeg",
+      },
+      { url: "https://www.lexingtonthemes.com/opengraph/social-og.jpg" },
+      { url: "https://www.lexingtonthemes.com/opengraph/twitter-og.jpg" },
+    ],
+    site_name: "YourSitesName",
+  }}
+  twitter={{
+    handle: "@TwitterHandle",
+    site: "@site",
+    cardType: "summary_large_image",
+  }}
+/>
+<BaseLayout>
+  <Navigation />
+  <section
+    aria-labelledby="post"
+    id="post"
+    class="mx-auto 2xl:max-w-7xl bg-violet-300 border-b-2 2xl:border-x-2 border-black">
+    <img
+      class="h-[56vh] w-full object-contain"
+      src={frontmatter.image.url}
+      alt={frontmatter.image.alt}
+    />
+  </section>
+  <section>
+    <main
+      class="py-[5.75rem] 2xl:max-w-7xl mx-auto 2xl:border-x-2 border-b-2 border-black">
+      <div class="relative px-8 sm:px-6 lg:px-8">
+        <div
+          class="mx-auto max-w-[48rem] prose-2xl prose prose-h3:lg:text-6xl text-black prose-h3:text-black prose-a:font-semibold prose-a:text-violet-600 hover:prose-a:text-black prose-img:border-2 prose-img:border-black prose-img:shadow">
+          <div class="inline-flex items-center justify-between w-full">
+            <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
+            <p>
+              Written by: {frontmatter.author}
+            </p>
+          </div>
+          <h1><em>{frontmatter.title}</em></h1>
+          <p><em>{frontmatter.description}</em></p>
+          <div class="not-prose flex flex-wrap space-x-3">
+            {
+              frontmatter.tags.map((tag) => (
+                <span class="inline-flex items-center  ">
+                  <a href={`/tags/${tag}`}>{tag}</a>
+                </span>
+              ))
+            }
+          </div>
+          <slot />
+        </div>
+        <div class="border-black mx-auto border-t-2 max-w-[48rem] mt-12 pt-3">
+          <div class="items-center inline-flex gap-3">
+            <p>Share:</p>
+            <a href="#">
+              <span
+                ><svg
+                  class="text-black w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><path d="M0 0h24v24H0z" fill="none" stroke="none"
+                  ></path><circle cx="6" cy="12" r="3"></circle><circle
+                    cx="18"
+                    cy="6"
+                    r="3"></circle><circle cx="18" cy="18" r="3"></circle><line
+                    x1="8.7"
+                    x2="15.3"
+                    y1="10.7"
+                    y2="7.3"></line><line x1="8.7" x2="15.3" y1="13.3" y2="16.7"
+                  ></line></svg
+                >
+              </span>
+            </a>
+            <a href="">
+              <span
+                ><svg
+                  class="text-black w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><path d="M0 0h24v24H0z" fill="none" stroke="none"
+                  ></path><path
+                    d="M9 4h6a2 2 0 0 1 2 2v14l-5 -3l-5 3v-14a2 2 0 0 1 2 -2"
+                  ></path></svg
+                ></span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </section>
+  <Footer />
+</BaseLayout>

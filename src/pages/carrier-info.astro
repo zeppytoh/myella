@@ -1,11 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Navigation from "../components/global/Navigation.astro";
-import PricingThree from "../components/pricing/PricingThree.astro";
-import LogoCloudOne from "../components/testimonials/LogoCloudOne.astro";
-import TestimonialOne from "../components/testimonials/TestimonialOne.astro";
-import CtaOne from "../components/ctas/CtaOne.astro";
+import Info from "../components/carriers/Info.astro";
 import Footer from "../components/global/Footer.astro";
+
 import { AstroSeo } from "@astrolib/seo";
 ---
 
@@ -13,7 +11,7 @@ import { AstroSeo } from "@astrolib/seo";
 Use AstroSeo in all the pages you want different Seo than the index page
 -->
 <AstroSeo
-  title="Pricing "
+  title="About"
   description="Your site description goes here"
   canonical="https://www.lexingtonthemes.com"
   openGraph={{
@@ -46,12 +44,9 @@ Use AstroSeo in all the pages you want different Seo than the index page
     cardType: "summary_large_image",
   }}
 />
-
 <BaseLayout>
   <Navigation />
-  <PricingThree />
-  <LogoCloudOne />
-  <TestimonialOne />
-  <CtaOne />
+  <Info />
+
   <Footer />
 </BaseLayout>

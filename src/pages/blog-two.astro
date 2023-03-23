@@ -1,0 +1,84 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navigation from "../components/global/Navigation.astro";
+import EntriesTwo from "../components/entries/EntriesTwo.astro";
+import CtaFour from "../components/ctas/CtaFour.astro";
+import Footer from "../components/global/Footer.astro";
+const allPosts = await getCollection("posts");
+import { AstroSeo } from "@astrolib/seo";
+---
+
+<AstroSeo
+  title="Blog 2"
+  description="Your site description goes here"
+  canonical="https://www.lexingtonthemes.com"
+  openGraph={{
+    url: "https://www.lexingtonthemes.com",
+    title: "Open Graph Title",
+    description: "Open Graph Description",
+    images: [
+      {
+        url: "https://www.lexingtonthemes.com/opengraph/social-og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Social open graph",
+        type: "image/jpeg",
+      },
+      {
+        url: "https://www.lexingtonthemes.com/opengraph/twitter-og.jpg",
+        width: 4096,
+        height: 4096,
+        alt: "Twitter open graph",
+        type: "image/jpeg",
+      },
+      { url: "https://www.lexingtonthemes.com/opengraph/social-og.jpg" },
+      { url: "https://www.lexingtonthemes.com/opengraph/twitter-og.jpg" },
+    ],
+    site_name: "YourSitesName",
+  }}
+  twitter={{
+    handle: "@TwitterHandle",
+    site: "@site",
+    cardType: "summary_large_image",
+  }}
+/>
+<BaseLayout>
+  <Navigation />
+  <section class="bg-white " aria-labelledby="blog" id="blog">
+    <div
+      class="relative items-center w-full mx-auto 2xl:max-w-7xl p-8 lg:p-20 2xl:px-0">
+      <div class="max-w-xl mx-auto text-center">
+        <h2 class="text-3xl lg:text-5xl tracking-tight text-black">
+          Latest news and resources
+        </h2>
+        <p class="xl:text-xl tracking-tight text-black mt-3">
+          Flabbergasted is a neo brutalist UI Kit that allows you to put
+          togheter pages from different categories and customize them to your
+          needs to create a landing page or a whole website in hours, not
+          months.
+        </p>
+      </div>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-12 [&>*:nth-child(1)]:bg-red-400 [&>*:nth-child(2)]:bg-green-400 [&>*:nth-child(3)]:bg-violet-300 [&>*:nth-child(4)]:bg-yellow-400">
+        {
+          allPosts
+            .slice()
+            .map((post) => (
+              <EntriesTwo
+                url={"/posts/" + post.slug}
+                title={post.data.title}
+                description={post.data.description}
+                alt={post.data.title}
+                pubDate={post.data.pubDate.toString().slice(0, 10)}
+                author={post.data.author}
+                image={post.data.image.url}
+              />
+            ))
+        }
+      </div>
+    </div>
+    <CtaFour />
+    <Footer />
+  </section>
+</BaseLayout>

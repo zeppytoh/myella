@@ -1,0 +1,47 @@
+---
+import { carriers } from "../../data/carriers.json";
+---
+
+<section
+  class="relative flex items-center w-full border-b-2 border-black bg-white"
+  aria-labelledby="faq"
+  id="faq">
+  <div class="relative items-center w-full mx-auto 2xl:max-w-7xl">
+    <div class="relative p-8 lg:p-20 items-center gap-12 h-full">
+      <div class="text-center max-w-4xl mx-auto">
+        <p class="text-3xl lg:text-5xl tracking-tight text-black">
+          Help us bring software magic back
+        </p>
+      </div>
+      <div class="mx-auto max-w-3xl mt-16">
+        <ul class="divide-y-2 divide-black border-y-2 border-black">
+          {
+            carriers.map((template) => (
+              <>
+                <li class="grid gird-cols-1 gap-6 lg:grid-cols-2 py-12">
+                  <div class="flex-col space-y-6">
+                    <p class="text-3xl tracking-tight">{template.name}</p>
+                    <p> {template.role}</p>
+                    <div class="inline-flex items-center gap-3 text-xs">
+                      <p> {template.location}</p>
+                      <p>{template.date}</p>
+                      <p>{template.salary}</p>
+                    </div>
+                  </div>
+                  <div class="lg:ml-auto">
+                    <a
+                      class="text-black items-center shadow-[5px_5px_black] inline-flex px-6 focus:outline-none justify-center text-center bg-white border-black ease-in-out hover:text-white transform transition hover:shadow-none border-2 duration-200 hover:bg-black lg:w-auto py-3 rounded-xl w-full"
+                      href={template.link}
+                      type="button">
+                      Read more
+                    </a>
+                  </div>
+                </li>
+              </>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

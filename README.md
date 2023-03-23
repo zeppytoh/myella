@@ -4,7 +4,6 @@
 - @astrojs/tailwind - https://docs.astro.build/en/guides/integrations-guide/tailwind/
 - @astrojs/image - https://docs.astro.build/en/guides/integrations-guide/image/
 - @astrojs/sitemap - https://docs.astro.build/en/guides/integrations-guide/sitemap/
-
 - Astrolib SEO - https://github.com/onwidget/astrolib/tree/main/packages/seo
 - Astro compress - https://github.com/NikolaRHristov/astro-compress#readme
 ## Template Structure
@@ -17,7 +16,8 @@ Inside of your Astro project, you'll see the following folders and files:
 ├── src/
 │   └── pages/
 │       └── index.astro
-└── package.json
+└── package.jsonnpx astro add mdx
+
 ```
 
 Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
