@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import LandingLayout from "../layouts/LandingLayout.astro";
 import Navigation from "../components/global/Navigation.astro";
 import Hero from "../components/headers/NameHeader.astro";
 import FeatureOne from "../components/features/FeatureOne.astro";
@@ -51,7 +51,7 @@ Use AstroSeo in all the pages you want different Seo than the index page
     cardType: "summary_large_image",
   }}
 />
-<BaseLayout>
+<LandingLayout>
   <Hero />
   <Navigation />
   <FeatureOne />
@@ -63,4 +63,4 @@ Use AstroSeo in all the pages you want different Seo than the index page
   <LogoCloudOne />
   <FaqOne />
   <Footer />
-</BaseLayout>
+</LandingLayout>

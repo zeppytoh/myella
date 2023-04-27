@@ -1,11 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Navigation from "../components/global/Navigation.astro";
 import Submit from "../components/forms/Submit.astro";
-import Footer from "../components/global/Footer.astro";
 import { AstroSeo } from "@astrolib/seo";
 ---
-
 <!---
 Use AstroSeo in all the pages you want different Seo than the index page
 -->
@@ -44,7 +41,5 @@ Use AstroSeo in all the pages you want different Seo than the index page
   }}
 />
 <BaseLayout>
-  <Navigation />
   <Submit />
-  <Footer />
 </BaseLayout>

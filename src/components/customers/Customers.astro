@@ -1,0 +1,181 @@
+---
+import { customers } from "../../data/customers.json";
+---
+
+<section
+  aria-labelledby="feature-three"
+  id="feature-three"
+  class="relative flex items-center w-full border-b-2 border-t-0 border-black 2xl:max-w-7xl mx-auto">
+  <div class="relative items-center w-full mx-auto">
+    <div class="relative p-8 lg:p-20 items-center gap-12 h-full">
+      <div class="text-center max-w-4xl mx-auto">
+        <p class="text-5xl font-display text-black">Our beloved customers</p>
+        <p class="max-w-xl mt-4 xl:text-2xl mx-auto tracking-tight text-black">
+          We dont' say it, they do
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="overflow-hidden relative">
+  <div
+    class="relative flex items-center w-full"
+    aria-labelledby="feature-one"
+    id="feature-one">
+    <div
+      x-data="{
+                    skip: 1,
+                    atBeginning: false,
+                    atEnd: false,
+                    next() {
+                        this.to((current, offset) => current + (offset * this.skip))
+                    },
+                    prev() {
+                        this.to((current, offset) => current - (offset * this.skip))
+                    },
+                    to(strategy) {
+                        let slider = this.$refs.slider
+                        let current = slider.scrollLeft
+                        let offset = slider.firstElementChild.getBoundingClientRect().width
+                        slider.scrollTo({ left: strategy(current, offset), behavior: 'smooth' })
+                    },
+                    focusableWhenVisible: {
+                        'x-intersect:enter'() {
+                            this.$el.removeAttribute('tabindex')
+                        },
+                        'x-intersect:leave'() {
+                            this.$el.setAttribute('tabindex', '-1')
+                        },
+                    },
+                    disableNextAndPreviousButtons: {
+                        'x-intersect:enter.threshold.05'() {
+                            let slideEls = this.$el.parentElement.children
+                            // If this is the first slide.
+                            if (slideEls[0] === this.$el) {
+                                this.atBeginning = true
+                            // If this is the last slide.
+                            } else if (slideEls[slideEls.length-1] === this.$el) {
+                                this.atEnd = true
+                            }
+                        },
+                        'x-intersect:leave.threshold.05'() {
+                            let slideEls = this.$el.parentElement.children
+                            // If this is the first slide.
+                            if (slideEls[0] === this.$el) {
+                                this.atBeginning = false
+                            // If this is the last slide.
+                            } else if (slideEls[slideEls.length-1] === this.$el) {
+                                this.atEnd = false
+                            }
+                        },
+                    },
+                }"
+      class="flex w-full flex-col">
+      <div
+        x-on:keydown.right="next"
+        x-on:keydown.left="prev"
+        tabindex="0"
+        role="region"
+        aria-labelledby="carousel-label"
+        class="flex flex-col mx-auto relative items-center">
+        <h2 id="carousel-label" class="sr-only" hidden>Carousel</h2>
+        <!-- Prev Button -->
+        <span id="carousel-content-label" class="sr-only" hidden>Carousel</span>
+        <div>
+          <ul
+            x-ref="slider"
+            tabindex="0"
+            role="listbox"
+            aria-labelledby="carousel-content-label"
+            class="flex w-full snap-x snap-mandatory overflow-x-hidden h-full items-center text-center">
+            {
+              customers.slice(0, 4).map((template) => (
+                <>
+                  <li
+                    x-bind="disableNextAndPreviousButtons"
+                    class="flex w-full shrink-0 snap-start flex-col items-center justify-center p-8 lg:p-20"
+                    role="option">
+                    <div class="max-w-xl">
+                      <img
+                        class="h-20 lg:h-32  mx-auto"
+                        src={template.image}
+                        alt={template.name}
+                      />
+                      <div>
+                        <p class="text-3xl mt-3 tracking-tight  text-black">
+                          "{template.description}"
+                        </p>
+                      </div>
+                      <div class="flex justify-center mx-auto mt-10 ">
+                        <a
+                          class="text-black items-center shadow-[5px_5px_black] inline-flex px-6 focus:outline-none justify-center text-center bg-white border-black ease-in-out hover:text-white transform transition hover:shadow-none border-2 duration-200 hover:bg-black lg:w-auto py-3 rounded-xl w-full"
+                          href={template.link}
+                          title={template.name}>
+                          Read case study <span class="ml-3">&rarr;</span>
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+                </>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+      <div
+        class="inline-flex items-center gap-3 mx-auto justify-between w-full bg-black p-8 lg:px-20">
+        <button
+          class=""
+          x-on:click="prev"
+          class="text-6xl"
+          :aria-disabled="atBeginning"
+          :tabindex="atEnd ? -1 : 0"
+          :class="{ 'opacity-50 cursor-not-allowed': atBeginning }">
+          <span
+            class="block text-white bg-black hover:text-yellow-500"
+            aria-hidden="true">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler w-8 h-8 lg:h-20 lg:w-20 icon-tabler-chevron-left"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <polyline points="15 6 9 12 15 18"></polyline>
+            </svg>
+          </span>
+          <span class="sr-only">Skip to previous slide page</span>
+        </button>
+        <!-- Next Button -->
+        <button
+          class=""
+          x-on:click="next"
+          class="text-6xl"
+          :aria-disabled="atEnd"
+          :tabindex="atEnd ? -1 : 0"
+          :class="{ 'opacity-50 cursor-not-allowed': atEnd }">
+          <span
+            aria-hidden="true"
+            class="block text-white bg-black hover:text-yellow-500">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler w-8 h-8 lg:h-20 lg:w-20 icon-tabler-chevron-right"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <polyline points="9 6 15 12 9 18"></polyline>
+            </svg>
+          </span>
+          <span class="sr-only">Skip to next slide page</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

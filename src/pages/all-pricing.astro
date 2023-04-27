@@ -1,15 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Navigation from "../components/global/Navigation.astro";
 import PricingOne from "../components/pricing/PricingOne.astro";
 import PricingTwo from "../components/pricing/PricingTwo.astro";
 import PricingThree from "../components/pricing/PricingThree.astro";
 import PricingFour from "../components/pricing/PricingFour.astro";
 import PricingFive from "../components/pricing/PricingFive.astro";
-import Footer from "../components/global/Footer.astro";
 import { AstroSeo } from "@astrolib/seo";
 ---
-
 <!---
 Use AstroSeo in all the pages you want different Seo than the index page
 -->
@@ -47,13 +44,10 @@ Use AstroSeo in all the pages you want different Seo than the index page
     cardType: "summary_large_image",
   }}
 />
-
 <BaseLayout>
-  <Navigation />
   <PricingOne />
   <PricingTwo />
   <PricingThree />
   <PricingFour />
   <PricingFive />
-  <Footer />
 </BaseLayout>

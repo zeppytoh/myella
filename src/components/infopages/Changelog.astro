@@ -5,19 +5,41 @@
       <div class="lg:sticker lg:sticky py-8 lg:py-20 top-0">
         <div>
           <div>
-            <p class="text-5xl mt-24 tracking-tight lg:text-7xl text-black">
-              Changelog
-            </p>
-            <p class="mt-4 mx-auto tracking-tight text-black text-xl max-w-xl">
+            <p class="text-5xl mt-24 font-display text-black">Stay updated</p>
+            <p class="mt-4 tracking-tight text-black text-xl max-w-xl">
               New updates and improvements to Flabbergasted.
             </p>
-            <div class="flex-col flex gap-3 mt-10 sm:flex-row">
-              <a
-                class="text-black items-center shadow-[5px_5px_black] inline-flex px-6 focus:outline-none justify-center text-center bg-white border-black ease-in-out hover:text-white transform transition hover:shadow-none border-2 duration-200 hover:bg-black lg:w-auto py-3 rounded-xl w-full"
-                href="/overview"
-                >Explore all pages <span class="ml-3">&rarr;</span></a
-              >
-            </div>
+            <form
+              class="border-black shadow bg-white border-2 justify-between max-w-sm mt-8 p-2 rounded-2xl sm:flex">
+              <label class="sr-only" for="email-address">Email address</label>
+              <input
+                autocomplete="email"
+                class="w-full px-5 border-transparent focus:ring-black py-3 bg-transparent focus:border-black placeholder-black rounded-md sm:max-w-xs"
+                id="email-address"
+                name="email"
+                placeholder="Enter your email"
+                required=""
+                type="email"
+              /><div
+                class="ml-auto mt-3 rounded-md sm:flex-shrink-0 sm:ml-3 sm:mt-0">
+                <button
+                  class="items-center focus:outline-none focus:ring-2 focus:ring-offset-2 justify-center font-medium bg-black border border-transparent flex focus:ring-black hover:bg-lila-500 hover:text-black px-5 py-3 rounded-xl text-base text-white w-full"
+                  type="submit"
+                  ><svg
+                    class="h-6 mr-3 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    ><path
+                      d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path></svg
+                  > Subscribe for free</button
+                >
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -28,7 +50,7 @@
           <ul class="grid grid-cols-1 lg:gap-24 gap-12 list-none" role="list">
             <li class="border-2 border-black p-8 shadow-large bg-green-500">
               <div
-                class="prose-3xl prose text-black prose-a:font-semibold prose-a:text-black hover:prose-a:text-red-500 prose-a:decoration-mercury-400 hover:prose-a:decoration-mint">
+                class="prose-3xl prose text-black prose-a:font-semibold prose-a:text-black hover:prose-a:text-black/80 prose-a:decoration-black hover:prose-a:decoration-mint prose-li:marker:text-black prose-hr:border-black -hr:border-black">
                 <h2>Version 4.4</h2>
                 <p>28 May, 2023</p>
                 <a
@@ -67,11 +89,15 @@
                   <li>Minor changes in URL Scheme API</li>
                   <li>Small bug fixes and UX improvements</li>
                 </ul>
+                <hr />
+                <a href="/changelog-details"
+                  >Read more <span class="ml-3">&rarr;</span></a
+                >
               </div>
             </li>
-            <li class="border-2 border-black p-8 shadow-large">
+            <li class="border-2 border-black p-8 shadow-large bg-yellow-500">
               <div
-                class="prose-3xl prose text-black prose-a:font-semibold prose-a:text-black hover:prose-a:text-red-500 prose-a:decoration-mercury-400 hover:prose-a:decoration-mint pt-12">
+                class="prose-3xl prose text-black prose-a:font-semibold prose-a:text-black hover:prose-a:text-black/80 prose-a:decoration-black hover:prose-a:decoration-mint prose-li:marker:text-black prose-hr:border-black">
                 <h2>Version 3.11</h2>
                 <p>16 March, 2023</p>
                 <a
@@ -79,7 +105,7 @@
                   class="inline-flex items-center">
                   Watch update video</a
                 >
-                <ul>
+                <ul class="role-list">
                   <li>
                     Added new setting that allows to change behavior of "Capture
                     Area &..." shortcuts
@@ -91,34 +117,38 @@
                   </li>
                   <li>Minor bug fixes and improvements</li>
                 </ul>
+                <hr />
+                <a href="/changelog-details"
+                  >Read more <span class="ml-3">&rarr;</span></a
+                >
               </div>
             </li>
             <li class="border-2 border-black p-8 shadow-large bg-red-500">
               <div
-                class="prose-3xl prose text-black prose-a:font-semibold prose-a:text-black hover:prose-a:text-red-500 prose-a:decoration-mercury-400 hover:prose-a:decoration-mint pt-12">
+                class="prose-3xl prose text-black prose-a:font-semibold prose-a:text-black hover:prose-a:text-black/80 prose-a:decoration-black hover:prose-a:decoration-mint prose-li:marker:text-black prose-hr:border-black">
                 <h2>Version 2.3.3</h2>
                 <p>8 January, 2023</p>
 
-                <ul>
+                <ul class="role-list">
                   <li>
                     Added new setting that allows to change behavior of "Capture
                     Area &..." shortcuts
                   </li>
                   <li>Improved combining images in Annotate after cropping</li>
                 </ul>
+                <hr />
+                <a href="/changelog-details"
+                  >Read more <span class="ml-3">&rarr;</span></a
+                >
               </div>
             </li>
-            <li class="border-2 border-black p-8 shadow-large bg-yellow-500">
+            <li class="border-2 border-black p-8 shadow-large">
               <div
-                class="prose-3xl prose text-black prose-a:font-semibold prose-a:text-black hover:prose-a:text-red-500 prose-a:decoration-mercury-400 hover:prose-a:decoration-mint">
-                <h2>Version 4.4</h2>
-                <p>28 May, 2023</p>
-                <a
-                  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                  class="inline-flex items-center">
-                  Watch update video</a
-                >
-                <ul>
+                class="prose-3xl prose text-black prose-a:font-semibold prose-a:text-black hover:prose-a:text-black/80 prose-a:decoration-black hover:prose-a:decoration-mint prose-li:marker:text-black prose-hr:border-black">
+                <h2>Version 2.3.3</h2>
+                <p>8 January, 2023</p>
+
+                <ul class="role-list">
                   <li>
                     Introducing Capture History - easily access and restore
                     recent captures
@@ -149,6 +179,10 @@
                   <li>Minor changes in URL Scheme API</li>
                   <li>Small bug fixes and UX improvements</li>
                 </ul>
+                <hr />
+                <a href="/changelog-details"
+                  >Read more <span class="ml-3">&rarr;</span></a
+                >
               </div>
             </li>
           </ul>

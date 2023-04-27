@@ -6,8 +6,8 @@ import { store } from "../../data/store.json";
   <div
     class="relative items-center w-full mx-auto 2xl:max-w-7xl p-8 lg:p-20 2xl:px-0">
     <div class="max-w-xl mx-auto text-center">
-      <h2 class="text-3xl lg:text-5xl tracking-tight text-black">
-        Welcome yo Flabber Store
+      <h2 class="text-3xl lg:text-5xl font-display text-black">
+        Welcome to Flabbergasted's Store
       </h2>
       <p class="xl:text-xl tracking-tight text-black mt-3">
         Look around and see if you like something that you like.
@@ -19,7 +19,7 @@ import { store } from "../../data/store.json";
         store.map((template) => (
           <>
             <a href={template.url}>
-              <div class="group relative border-2 border-black shadow-large ">
+              <div class="group relative border-2 border-black shadow-large h-full">
                 <div>
                   <img
                     src={template.image}

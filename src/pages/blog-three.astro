@@ -1,10 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Navigation from "../components/global/Navigation.astro";
+
 import EntriesThree from "../components/entries/EntriesThree.astro";
 import CtaFour from "../components/ctas/CtaFour.astro";
-import Footer from "../components/global/Footer.astro";
 const allPosts = await getCollection("posts");
 import { AstroSeo } from "@astrolib/seo";
 ---
@@ -44,14 +43,11 @@ import { AstroSeo } from "@astrolib/seo";
   }}
 />
 <BaseLayout>
-  <Navigation />
   <section class="bg-white" aria-labelledby="blog" id="blog">
     <div
       class="relative items-center w-full mx-auto 2xl:max-w-7xl p-8 lg:p-20 2xl:px-0">
       <div class="max-w-xl mx-auto text-center">
-        <h2 class="text-3xl lg:text-5xl tracking-tight text-black">
-          Latest news and resources
-        </h2>
+        <h2 class="text-3xl lg:text-5xl font-display text-black">Our blog</h2>
         <p class="xl:text-xl tracking-tight text-black mt-3">
           Flabbergasted is a neo brutalist UI Kit that allows you to put
           togheter pages from different categories and customize them to your
@@ -77,6 +73,5 @@ import { AstroSeo } from "@astrolib/seo";
       </div>
     </div>
     <CtaFour />
-    <Footer />
   </section>
 </BaseLayout>

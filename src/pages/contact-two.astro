@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
+import ContactTwo from "../components/forms/ContactTwo.astro";
+
 import { AstroSeo } from "@astrolib/seo";
 ---
 
@@ -8,7 +10,7 @@ import { AstroSeo } from "@astrolib/seo";
 Use AstroSeo in all the pages you want different Seo than the index page
 -->
 <AstroSeo
-  title="All testimonials"
+  title="Contact Two"
   description="Your site description goes here"
   canonical="https://www.lexingtonthemes.com"
   openGraph={{
@@ -41,4 +43,6 @@ Use AstroSeo in all the pages you want different Seo than the index page
     cardType: "summary_large_image",
   }}
 />
-<BaseLayout />
+<BaseLayout>
+  <ContactTwo />
+</BaseLayout>

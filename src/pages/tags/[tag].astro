@@ -2,8 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogPost from "../../components/BlogPost.astro";
 import { getCollection } from "astro:content";
-import Navigation from "../../components/global/Navigation.astro";
-import Footer from "../../components/global/Footer.astro";
+
 export async function getStaticPaths() {
   const allPosts = await getCollection("posts");
   const uniqueTags = [
@@ -26,12 +25,11 @@ const { posts } = Astro.props;
 ---
 
 <BaseLayout pageTitle={tag}>
-  <Navigation />
   <section>
     <div
       class="relative items-center w-full mx-auto 2xl:max-w-7xl p-8 lg:p-20 2xl:px-0">
       <div class="max-w-xl mx-auto text-center">
-        <h2 class="text-3xl lg:text-5xl tracking-tight text-black">
+        <h2 class="text-3xl lg:text-5xl font-display text-black">
           Posts tagged with...
         </h2>
       </div>
@@ -55,5 +53,4 @@ const { posts } = Astro.props;
       </ol>
     </div>
   </section>
-  <Footer />
 </BaseLayout>

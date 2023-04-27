@@ -1,11 +1,8 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import Navigation from "../components/global/Navigation.astro";
-import Footer from "../components/global/Footer.astro";
 const { frontmatter } = Astro.props;
 import { AstroSeo } from "@astrolib/seo";
 ---
-
 <AstroSeo
   title={frontmatter.title}
   description={frontmatter.description}
@@ -41,7 +38,6 @@ import { AstroSeo } from "@astrolib/seo";
   }}
 />
 <BaseLayout>
-  <Navigation />
   <section
     aria-labelledby="post"
     id="post"
@@ -53,7 +49,7 @@ import { AstroSeo } from "@astrolib/seo";
     />
   </section>
   <section>
-    <main
+    <div
       class="py-[5.75rem] 2xl:max-w-7xl mx-auto 2xl:border-x-2 border-b-2 border-black">
       <div class="relative px-8 sm:px-6 lg:px-8">
         <div
@@ -64,13 +60,17 @@ import { AstroSeo } from "@astrolib/seo";
               Written by: {frontmatter.author}
             </p>
           </div>
-          <h1><em>{frontmatter.title}</em></h1>
+          <h1 class="font-display"><em>{frontmatter.title}</em></h1>
           <p><em>{frontmatter.description}</em></p>
           <div class="not-prose flex flex-wrap space-x-3">
             {
               frontmatter.tags.map((tag) => (
                 <span class="inline-flex items-center  ">
-                  <a href={`/tags/${tag}`}>{tag}</a>
+                  <a
+                    class="text-lila-900 hover:text-black duration-200"
+                    href={`/tags/${tag}`}>
+                    {tag}
+                  </a>
                 </span>
               ))
             }
@@ -125,7 +125,6 @@ import { AstroSeo } from "@astrolib/seo";
           </div>
         </div>
       </div>
-    </main>
+    </div>
   </section>
-  <Footer />
 </BaseLayout>

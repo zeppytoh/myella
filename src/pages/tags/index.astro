@@ -1,20 +1,18 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Navigation from "../../components/global/Navigation.astro";
-import Footer from "../../components/global/Footer.astro";
+
 const allPosts = await getCollection("posts");
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 const pageTitle = "Tag Index";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <Navigation />
   <section>
     <div
       class="relative items-center w-full mx-auto 2xl:max-w-7xl p-8 lg:p-20 2xl:px-0">
       <div class="max-w-xl mx-auto text-center">
-        <h2 class="text-3xl lg:text-5xl tracking-tight text-black">
+        <h2 class="text-3xl lg:text-5xl font-display text-black">
           Popular tags
         </h2>
       </div>
@@ -33,5 +31,4 @@ const pageTitle = "Tag Index";
       </ol>
     </div>
   </section>
-  <Footer />
 </BaseLayout>
