@@ -214,7 +214,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Source Sans Pro", ...defaultTheme.fontFamily.sans],
-        display: ["Sigmar", ...defaultTheme.fontFamily.sans],
+       
 
       },
     },
