@@ -151,18 +151,7 @@ module.exports = {
       colors: {
         black: "#141520",
         white: "#f5f5f5",
-        orange: {
-          50: "#FEF0EC",
-          100: "#FDE4DE",
-          200: "#FAC6B7",
-          300: "#F8AB96",
-          400: "#F58D70",
-          500: "#F3734E",
-          600: "#EF4010",
-          700: "#B5310C",
-          800: "#772008",
-          900: "#3E1104",
-        },
+       
         green: {
          50: "#F8FBFC",
       100: "#F2F7F8",
@@ -214,7 +203,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Source Sans Pro", ...defaultTheme.fontFamily.sans],
-       
+
 
       },
     },
