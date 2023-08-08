@@ -1,10 +1,8 @@
 import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import image from "@astrojs/image";
-import compress from "astro-compress";
 import sitemap from "@astrojs/sitemap";
-import mdx from "@astrojs/mdx"; // VS Code Theme is: Sequoiatheme.com
-// https://astro.build/config
+import mdx from "@astrojs/mdx";
 export default defineConfig({
 markdown: {
     drafts: true,
@@ -16,5 +14,5 @@ markdown: {
     drafts: true,
   },
    site: 'https://lexingtonthemes.com',
-  integrations: [tailwind(), image(), compress(), sitemap(), mdx()]
+  integrations: [tailwind(), image(),  sitemap(), mdx()]
 });
