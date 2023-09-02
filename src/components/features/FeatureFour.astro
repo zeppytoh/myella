@@ -1,7 +1,4 @@
----
-import balls from "/public/images/balls.png";
-import { Image } from "@astrojs/image/components";
----
+
 <section
   class="relative flex items-center w-full border-b-2 border-black"
  >
@@ -9,7 +6,7 @@ import { Image } from "@astrojs/image/components";
     <div
       class="grid grid-cols-1 md:grid-cols-2 divide-y-2 divide-black md:divide-y-0 md:divide-x-2 2xl:border-x-2 border-black">
       <div class="block w-full aspect-square lg:mt-0 bg-red-500 h-full">
-        <Image class="border-b-0 object-cover" src={balls} alt="#" />
+        <img class="border-b-0 object-cover" src="/images/balls.png" alt="#" />
       </div>
       <div
         class="relative p-8 lg:px-20 items-center gap-12 h-full lg:inline-flex bg-lila-500">
