@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+     // Replace `astro/client` with `@astrojs/image/client`
+  "types": ["@astrojs/image/client"],
+    "strictNullChecks": true,
     // Enable top-level await, and other modern ESM features.
     "target": "ESNext",
     "module": "ESNext",
@@ -10,6 +13,10 @@
     // Enable stricter transpilation for better output.
     "isolatedModules": true,
     // Astro will directly run your TypeScript code, no transpilation needed.
-    "noEmit": true
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   }
 }

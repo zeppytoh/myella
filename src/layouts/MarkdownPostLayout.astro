@@ -3,6 +3,7 @@ import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
 import { AstroSeo } from "@astrolib/seo";
 ---
+
 <AstroSeo
   title={frontmatter.title}
   description={frontmatter.description}
@@ -41,90 +42,50 @@ import { AstroSeo } from "@astrolib/seo";
   <section
     aria-labelledby="post"
     id="post"
-    class="mx-auto 2xl:max-w-7xl bg-violet-300 border-b-2 2xl:border-x-2 border-black">
+    class="mx-auto 2xl:max-w-7xl bg-violet-300 border-b-2 2xl:border-x-2 border-black"
+  >
     <img
-      class="h-[56vh] w-full object-contain"
+      class="h-96 w-full object-contain"
       src={frontmatter.image.url}
       alt={frontmatter.image.alt}
     />
+
   </section>
   <section>
     <div
-      class="py-[5.75rem] 2xl:max-w-7xl mx-auto 2xl:border-x-2 border-b-2 border-black">
-      <div class="relative px-8 sm:px-6 lg:px-8">
-        <div
-          class="mx-auto max-w-[48rem] prose-2xl prose prose-h3:lg:text-6xl text-black prose-h3:text-black prose-a:font-semibold prose-a:text-violet-600 hover:prose-a:text-black prose-img:border-2 prose-img:border-black prose-img:shadow">
-          <div class="inline-flex items-center justify-between w-full">
+      class="p-8 lg:p-20 2xl:max-w-7xl mx-auto 2xl:border-x-2 border-b-2 border-black"
+    >
+    <div class="max-w-3xl mx-auto">
+      <div class="prose-styles">
+        <h1 >{frontmatter.title}</h1>
+        <p>{frontmatter.description}</p>
+        <div class="inline-flex items-center justify-between w-full text-sm">
+          <div class="flex gap-4">
             <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
             <p>
               Written by: {frontmatter.author}
             </p>
           </div>
-          <h1 class="font-display"><em>{frontmatter.title}</em></h1>
-          <p><em>{frontmatter.description}</em></p>
-          <div class="not-prose flex flex-wrap space-x-3">
+          <div class="not-prose flex flex-wrap space-x-2 ">
             {
               frontmatter.tags.map((tag) => (
                 <span class="inline-flex items-center  ">
                   <a
-                    class="text-lila-900 hover:text-black duration-200"
-                    href={`/tags/${tag}`}>
+                    class="text-black items-center shadow-tiny shadow-black text-sm font-medium uppercase inline-flex px-6 focus:outline-none justify-center text-center bg-white border-black ease-in-out transform transition-all focus:ring-lila-700 focus:shadow-none border-2 duration-100 focus:bg-black focus:text-white sm:w-auto py-3 rounded-lg h-8 tracking-wide focus:translate-y-1 w-full hover:text-lila-800"
+                    href={`/tags/${tag}`}
+                  >
                     {tag}
                   </a>
                 </span>
               ))
             }
           </div>
-          <slot />
         </div>
-        <div class="border-black mx-auto border-t-2 max-w-[48rem] mt-12 pt-3">
-          <div class="items-center inline-flex gap-3">
-            <p>Share:</p>
-            <a href="#">
-              <span
-                ><svg
-                  class="text-black w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  xmlns="http://www.w3.org/2000/svg"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  ><path d="M0 0h24v24H0z" fill="none" stroke="none"
-                  ></path><circle cx="6" cy="12" r="3"></circle><circle
-                    cx="18"
-                    cy="6"
-                    r="3"></circle><circle cx="18" cy="18" r="3"></circle><line
-                    x1="8.7"
-                    x2="15.3"
-                    y1="10.7"
-                    y2="7.3"></line><line x1="8.7" x2="15.3" y1="13.3" y2="16.7"
-                  ></line></svg
-                >
-              </span>
-            </a>
-            <a href="">
-              <span
-                ><svg
-                  class="text-black w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  xmlns="http://www.w3.org/2000/svg"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  ><path d="M0 0h24v24H0z" fill="none" stroke="none"
-                  ></path><path
-                    d="M9 4h6a2 2 0 0 1 2 2v14l-5 -3l-5 3v-14a2 2 0 0 1 2 -2"
-                  ></path></svg
-                ></span
-              >
-            </a>
-          </div>
-        </div>
+      <div class="border-t-2 border-black">  <slot /></div>
       </div>
+
+    </div>
+
     </div>
   </section>
 </BaseLayout>

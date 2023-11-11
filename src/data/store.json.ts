@@ -6,32 +6,32 @@ export interface Template {
   name: string;
 };
 const productOne: Template = {
-  name: "Diagonal",
-  price: "3",
-  url: "/product-info",
-  image: "https://d33wubrfki0l68.cloudfront.net/8fe313ec592eafa959228fd9162deb170f1d5e75/dbc23/diagonal.svg",
-  type: "28 Dark mesh wallpapers to use on your projects or as wallpapers",
+  name: "Alfred",
+  price: "99",
+  url: "/store/product-info",
+  image: "https://lemonsqueezy.imgix.net/media/9887/7aa817d7-4efc-4d5b-a5a1-1ebd6cbbd247.png?fit=clip&h=1000&ixlib=php-3.3.1&w=1000&s=6b025867872051ad4cc5fcfd5b9f3995",
+  type: "SaaS Multipage theme",
 };
 const productTwo: Template = {
-    name: "Monoqrom",
-    price: "49",
-    image: "https://d33wubrfki0l68.cloudfront.net/0933339d27448f9092419e54a0467f572c738cca/14ea7/monoqrom.svg",
-  url: "/product-info",
-  type: "Quick method to start your design projects in Figma and Tailwind CSS.",
+    name: "Buio",
+    price: "99",
+    image: "https://lemonsqueezy.imgix.net/media/9887/5afeedde-42c3-40ce-99a6-872aa0f71ca9.png?fit=clip&h=1000&ixlib=php-3.3.1&w=1000&s=0198c14d9110f88380511570b2c7c5ae",
+  url: "/store/product-info",
+  type: "SaaS Multipage theme",
 };
 const productThree: Template = {
-    name: "Onda",
-    price: "3",
-    image: "https://d33wubrfki0l68.cloudfront.net/db2f42bf8d19088607647992aebbc20852cc92f8/7b22d/onda.svg",
-  url: "/product-info",
-  type: "16 Wave wallpapers to use on your projects or as wallpapers",
+    name: "Riflesso",
+    price: "99",
+    image: "https://lemonsqueezy.imgix.net/media/9887/3598a7a7-8734-4a24-82c6-6728cbd07bdb.png?fit=clip&h=1000&ixlib=php-3.3.1&w=1000&s=058f5244cfb8803c8ab88cf96a2f7d7f",
+  url: "/store/product-info",
+  type: "Agency Multipage  theme",
 };
 const productFour: Template = {
-    name: "Onda",
-    price: "0",
-    image: "https://d33wubrfki0l68.cloudfront.net/a7217a59cfb9cbd6a017994e32d6db314e00a492/7b4a1/figmax.svg",
-  url: "/product-info",
-  type: "A set of Figma covers inspired on 90's VHS Covers",
+    name: "Lexngton Bundle",
+    price: "199",
+    image: "https://lemonsqueezy.imgix.net/media/9887/dfc07d52-e0c4-4488-a7c4-163fbf6f6612.png?fit=clip&h=1000&ixlib=php-3.3.1&w=1000&s=d85afe7a7ff1da941ff960b2d1a9dda1",
+  url: "/store/product-info",
+  type: "Includes all templates on Lexingont themes",
 };
 export const byName = {
   productOne,
