@@ -4,154 +4,57 @@ const colors = require("tailwindcss/colors");
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
-    fontSize: {
-      xs: [
-        "0.75rem",
-        {
-          lineHeight: "1rem",
-        },
-      ],
-      sm: [
-        "0.875rem",
-        {
-          lineHeight: "1.5rem",
-        },
-      ],
-      base: [
-        "1rem",
-        {
-          lineHeight: "1.75rem",
-        },
-      ],
-      lg: [
-        "1.125rem",
-        {
-          lineHeight: "2rem",
-        },
-      ],
-      xl: [
-        "1.25rem",
-        {
-          lineHeight: "2rem",
-        },
-      ],
-      "2xl": [
-        "1.5rem",
-        {
-          lineHeight: "2rem",
-        },
-      ],
-      "3xl": [
-        "2rem",
-        {
-          lineHeight: "2.5rem",
-        },
-      ],
-      "4xl": [
-        "2.5rem",
-        {
-          lineHeight: "3.5rem",
-        },
-      ],
-      "5xl": [
-        "3rem",
-        {
-          lineHeight: "3.5rem",
-        },
-      ],
-      "6xl": [
-        "3.75rem",
-        {
-          lineHeight: "1",
-        },
-      ],
-      "7xl": [
-        "4.5rem",
-        {
-          lineHeight: "1.1",
-        },
-      ],
-      "8xl": [
-        "6rem",
-        {
-          lineHeight: "1",
-        },
-      ],
-      "9xl": [
-        "8rem",
-        {
-          lineHeight: "1",
-        },
-      ],
-      "10xl": [
-        "8.5rem",
-        {
-          lineHeight: "1",
-        },
-      ],
-      "11xl": [
-        "9rem",
-        {
-          lineHeight: "1",
-        },
-      ],
-      "12xl": [
-        "9.5rem",
-        {
-          lineHeight: "1",
-        },
-      ],
-      "13xl": [
-        "10rem",
-        {
-          lineHeight: "1",
-        },
-      ],
-      "14xl": [
-        "11rem",
-        {
-          lineHeight: "1",
-        },
-      ],
-      "15xl": [
-        "12rem",
-        {
-          lineHeight: "1",
-        },
-      ],
-      "16xl": [
-        "13rem",
-        {
-          lineHeight: "1",
-        },
-      ],
-      "17xl": [
-        "14rem",
-        {
-          lineHeight: "1",
-        },
-      ],
-      "18xl": [
-        "15rem",
-        {
-          lineHeight: "1",
-        },
-      ],
-    },
     extend: {
-      backgroundImage: (theme) => ({
-        screens: "url('/path-to/image.png')",
-      }),
-      boxShadow: {
-        small: "3px 3px",
-        DEFAULT: "5px 5px",
-        large: "10px 10px",
+      fontFamily: {
+        sans: ["Bricolage Grotesque", ...defaultTheme.fontFamily.sans],
       },
-
+      animation: {
+        marqueeLeft: 'marqueeLeft 20s linear infinite',
+        marqueeRight: 'marqueeRight 20s linear infinite',
+        animationPaused: 'paused', //stops on hover
+          scrollerDown: 'scrollerDown 12s linear infinite',
+          scrollerUp: 'scrollerUp 12s linear infinite',
+      },
+      keyframes: {
+        marqueeLeft: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+        marqueeRight: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(-0%)' },
+        },
+        scrollerDown: {
+          '0%': {
+            transform: 'translateY(-10em)'
+          },
+          '100%': {
+            transform: 'translateY(14em)'
+          },
+        },
+        scrollerUp: {
+          '0%': {
+            transform: 'translateY(10em)'
+          },
+          '100%': {
+            transform: 'translateY(-14em)'
+          },
+        },
+        'spin-reverse': {
+          to: {
+            transform: 'rotate(-360deg)',
+          },
+        },
+      },
+      boxShadow: {
+        tiny: "0px 1.5px",
+        small: "0px 3px",
+        DEFAULT: "0px 5px",
+        large: "0px 10px",
+      },
       colors: {
         black: "#141520",
         white: "#f5f5f5",
-       
         green: {
          50: "#F8FBFC",
       100: "#F2F7F8",
@@ -200,16 +103,65 @@ module.exports = {
       800: "#DE5E75",
       900: "#BF2743"
         },
-      },
-      fontFamily: {
-        sans: ["Source Sans Pro", ...defaultTheme.fontFamily.sans],
-
-
+        //states
+        info: {
+          '50': '#f2f6fc',
+          '100': '#e1eaf8',
+          '200': '#cadaf3',
+          '300': '#a6c3ea',
+          '400': '#7ca4de',
+          '500': '#5d85d4',
+          '600': '#496bc7',
+          '700': '#3f59b6',
+          '800': '#384a95',
+          '900': '#324076',
+          '950': '#222949',
+        },
+        success: {
+          '50': '#f3faf8',
+          '100': '#d7f0ec',
+          '200': '#bfe7e1',
+          '300': '#7ecac1',
+          '400': '#53aea6',
+          '500': '#3a928d',
+          '600': '#2c7572',
+          '700': '#275e5c',
+          '800': '#234c4c',
+          '900': '#20413f',
+          '950': '#0e2425',
+        },
+        warning: {
+          '50': '#fef5ee',
+    '100': '#fce9d8',
+    '200': '#f7ceb1',
+    '300': '#f2ab7e',
+    '400': '#ec804b',
+    '500': '#e75f28',
+    '600': '#d8471e',
+    '700': '#b4341a',
+    '800': '#8f2b1d',
+    '900': '#74261a',
+    '950': '#3e110c',
+        },
+        danger: {
+          '50': '#fdf5f3',
+          '100': '#fce8e4',
+          '200': '#fad5ce',
+          '300': '#f3ac9e',
+          '400': '#ed8f7c',
+          '500': '#e16a52',
+          '600': '#cd4e35',
+          '700': '#ac3f29',
+          '800': '#8f3625',
+          '900': '#773325',
+          '950': '#40170f',
+        },
       },
     },
   },
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
+    require('tailwind-scrollbar-hide'),
   ],
 };

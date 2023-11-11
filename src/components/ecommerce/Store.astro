@@ -1,35 +1,39 @@
 ---
-import { store } from "../../data/store.json";
+import { store } from "@/data/store.json";
 ---
 
-<section class="bg-white" aria-labelledby="blog" id="blog">
+<section class="bg-white">
   <div
-    class="relative items-center w-full mx-auto 2xl:max-w-7xl p-8 lg:p-20 2xl:px-0">
+    class="relative items-center w-full mx-auto 2xl:max-w-7xl p-8 lg:p-20 lg:py-32  2xl:border-x-2 border-b-2 border-black bg-lila-500"
+  >
     <div class="max-w-xl mx-auto text-center">
-      <h2 class="text-3xl lg:text-5xl font-display text-black">
+      <h1 class="text-3xl lg:text-5xl font-medium text-black max-w-4xl mx-auto">
         Welcome to Flabbergasted's Store
-      </h2>
-      <p class="xl:text-xl tracking-tight text-black mt-3">
+      </h1>
+      <p class="max-w-lg mt-4 xl:text-xl tracking-wide text-black mx-auto">
         Look around and see if you like something that you like.
       </p>
     </div>
+  </div>
+  <div class=" 2xl:max-w-7xl p-8 lg:p-20  2xl:border-x-2  mx-auto border-black">
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-12 mt-16 [">
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-12 "
+    >
       {
         store.map((template) => (
           <>
             <a href={template.url}>
-              <div class="group relative border-2 border-black shadow-large h-full">
+              <div class="group relative border-2 border-black divide-y-2 divide-black shadow-large h-full rounded-2xl overflow-hidden">
                 <div>
                   <img
                     src={template.image}
                     alt="{template.name}"
-                    class="aspect-[384/246]  object-cover bg-center h-full border-2  border-black"
+                    class="aspect-[384/246]  object-cover bg-center h-full "
                   />
                 </div>
-                <div class="p-6">
-                  <div class=" flex items-center justify-between space-x-8 text-lg font-semibold leading-6 text-neutral-900 dark:text-white group-hover:text-accent-400 ">
-                    <h3 class="text-xl lg:text-3xl text-black">
+                <div class="p-8 bg-lila-500 text-black">
+                  <div class=" flex items-center justify-between space-x-8 text-lg font-medium  ">
+                    <h3 class="text-xl lg:text-3xl ">
                       {template.name}
                     </h3>
                     <p>${template.price}</p>

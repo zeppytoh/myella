@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const allPosts = await getCollection("posts");
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
@@ -10,25 +10,29 @@ const pageTitle = "Tag Index";
 <BaseLayout pageTitle={pageTitle}>
   <section>
     <div
-      class="relative items-center w-full mx-auto 2xl:max-w-7xl p-8 lg:p-20 2xl:px-0">
-      <div class="max-w-xl mx-auto text-center">
-        <h2 class="text-3xl lg:text-5xl font-display text-black">
-          Popular tags
-        </h2>
-      </div>
-      <ol
-        role="list"
-        class="divide-y-2 mt-16 flex flex-wrap gap-3 mx-auto justify-center">
+      class=" items-center  mx-auto 2xl:max-w-7xl p-8 border-b-2 2xl:border-x-2 border-black lg:p-20 "
+    >
+    <p class="text-5xl lg:text-7xl text-black">Component Overview</p>
+    <p class="mt-4 xl:text-2xl tracking-tight text-black">
+      Explore all components
+    </p>
+
+    </div>
+    <div
+      class="relative items-center w-full mx-auto 2xl:max-w-7xl p-8 lg:p-20 lg:py-32 2xl:border-x-2 border-black"
+    >
+      <div class="flex flex-wrap gap-1">
         {
           tags.map((tag) => (
-            <li class="" aria-label="Strokes and fills on page 21">
-              <span class="text-black items-center shadow-[5px_5px_black] inline-flex px-6 focus:outline-none justify-center text-center bg-white border-black ease-in-out hover:text-white transform transition hover:shadow-none border-2 duration-200 hover:bg-black lg:w-auto py-3 rounded-xl w-full">
-                <a href={`/tags/${tag}`}>{tag}</a>
-              </span>
-            </li>
+            <a
+              class="text-black items-center shadow shadow-lila-600 text-lg font-semibold inline-flex px-6 focus:outline-none justify-center text-center bg-lila-300 focus:bg-lila-600 border-lila-600 duration-300 outline-none focus:shadow-none border-2 sm:w-auto py-3 rounded-lg h-16 tracking-wide focus:translate-y-1 w-full hover:bg-lila-500"
+              href={`/tags/${tag}`}
+            >
+              {tag}
+            </a>
           ))
         }
-      </ol>
+      </div>
     </div>
   </section>
 </BaseLayout>
