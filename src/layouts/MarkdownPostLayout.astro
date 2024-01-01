@@ -1,43 +1,38 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
-import { AstroSeo } from "@astrolib/seo";
 ---
 
-<AstroSeo
-  title={frontmatter.title}
-  description={frontmatter.description}
-  canonical="https://www.lexingtonthemes.com"
-  openGraph={{
-    url: "https://www.lexingtonthemes.com",
-    title: "Title}",
-    description: "Description",
-    images: [
-      {
-        url: "https://www.lexingtonthemes.com/opengraph/social-og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Social open graph",
-        type: "image/jpeg",
-      },
-      {
-        url: "https://www.lexingtonthemes.com/opengraph/twitter-og.jpg",
-        width: 4096,
-        height: 4096,
-        alt: "Twitter open graph",
-        type: "image/jpeg",
-      },
-      { url: "https://www.lexingtonthemes.com/opengraph/social-og.jpg" },
-      { url: "https://www.lexingtonthemes.com/opengraph/twitter-og.jpg" },
-    ],
-    site_name: "YourSitesName",
-  }}
-  twitter={{
-    handle: "@TwitterHandle",
-    site: "@site",
-    cardType: "summary_large_image",
-  }}
-/>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const headings = document.querySelectorAll(
+      ".prose-styles h1,.prose-styles h2, .prose-styles h3"
+    );
+    const tocContainer = document.getElementById("table-of-contents");
+    if (tocContainer && headings.length > 0) {
+      const tocList = document.createElement("ul");
+      tocList.classList.add(
+        "divide-y-2",
+        "divide-black",
+        "border-black",
+
+        "[&>*:nth-child(1)]:uppercase"
+      );
+      headings.forEach((heading) => {
+        const listItem = document.createElement("li");
+        listItem.classList.add("p-4");
+        const link = document.createElement("a");
+        link.textContent = heading.textContent;
+        link.href = `#${heading.id}`;
+        link.classList.add("prose-styles");
+        listItem.appendChild(link);
+        tocList.appendChild(listItem);
+      });
+      tocContainer.appendChild(tocList);
+      tocContainer.classList.remove("hidden");
+    }
+  });
+</script>
 <BaseLayout>
   <section
     aria-labelledby="post"
@@ -49,43 +44,40 @@ import { AstroSeo } from "@astrolib/seo";
       src={frontmatter.image.url}
       alt={frontmatter.image.alt}
     />
-
   </section>
   <section>
-    <div
-      class="p-8 lg:p-20 2xl:max-w-7xl mx-auto 2xl:border-x-2 border-b-2 border-black"
-    >
-    <div class="max-w-3xl mx-auto">
-      <div class="prose-styles">
-        <h1 >{frontmatter.title}</h1>
-        <p>{frontmatter.description}</p>
-        <div class="inline-flex items-center justify-between w-full text-sm">
-          <div class="flex gap-4">
-            <p>{frontmatter.pubDate.toString().slice(0, 10)}</p>
-            <p>
-              Written by: {frontmatter.author}
-            </p>
-          </div>
-          <div class="not-prose flex flex-wrap space-x-2 ">
-            {
-              frontmatter.tags.map((tag) => (
-                <span class="inline-flex items-center  ">
-                  <a
-                    class="text-black items-center shadow-tiny shadow-black text-sm font-medium uppercase inline-flex px-6 focus:outline-none justify-center text-center bg-white border-black ease-in-out transform transition-all focus:ring-lila-700 focus:shadow-none border-2 duration-100 focus:bg-black focus:text-white sm:w-auto py-3 rounded-lg h-8 tracking-wide focus:translate-y-1 w-full hover:text-lila-800"
-                    href={`/tags/${tag}`}
-                  >
-                    {tag}
-                  </a>
-                </span>
-              ))
-            }
+    <div class="2xl:max-w-7xl mx-auto 2xl:border-x-2  border-black">
+      <p
+        class="text-5xl font-display text-balance font-black md:text-7xl lg:text-8xl uppercase text-white"
+      >
+        {frontmatter.page}
+      </p>
+    </div>
+    <div class="2xl:border-x-2 border-black  2xl:max-w-7xl mx-auto">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-4 lg:divide-x-2 lg:divide-black"
+      >
+        <div class="lg:col-span-1">
+          <div
+            id="table-of-contents"
+            class="hidden lg:block sticky border-b border-black top-20"
+          >
+            <div class="p-4 border-b-2 border-black">
+              <h3 class="text-black text-3xl  uppercase font-display">
+                Table of contents
+              </h3>
+            </div>
+            <!--
+              //Your table of contents content here
+            -->
           </div>
         </div>
-      <div class="border-t-2 border-black">  <slot /></div>
+        <div class="lg:col-span-3 p-8 lg:p-20">
+          <div class="prose-styles">
+            <slot />
+          </div>
+        </div>
       </div>
-
-    </div>
-
     </div>
   </section>
 </BaseLayout>
