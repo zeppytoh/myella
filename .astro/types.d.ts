@@ -19,8 +19,6 @@ declare module 'astro:content' {
 }
 
 declare module 'astro:content' {
-	export { z } from 'astro/zod';
-
 	type Flatten<T> = T extends { [K: string]: infer U } ? U : never;
 
 	export type CollectionKey = keyof AnyEntryMap;
@@ -28,53 +26,6 @@ declare module 'astro:content' {
 
 	export type ContentCollectionKey = keyof ContentEntryMap;
 	export type DataCollectionKey = keyof DataEntryMap;
-
-	// This needs to be in sync with ImageMetadata
-	export type ImageFunction = () => import('astro/zod').ZodObject<{
-		src: import('astro/zod').ZodString;
-		width: import('astro/zod').ZodNumber;
-		height: import('astro/zod').ZodNumber;
-		format: import('astro/zod').ZodUnion<
-			[
-				import('astro/zod').ZodLiteral<'png'>,
-				import('astro/zod').ZodLiteral<'jpg'>,
-				import('astro/zod').ZodLiteral<'jpeg'>,
-				import('astro/zod').ZodLiteral<'tiff'>,
-				import('astro/zod').ZodLiteral<'webp'>,
-				import('astro/zod').ZodLiteral<'gif'>,
-				import('astro/zod').ZodLiteral<'svg'>,
-				import('astro/zod').ZodLiteral<'avif'>,
-			]
-		>;
-	}>;
-
-	type BaseSchemaWithoutEffects =
-		| import('astro/zod').AnyZodObject
-		| import('astro/zod').ZodUnion<[BaseSchemaWithoutEffects, ...BaseSchemaWithoutEffects[]]>
-		| import('astro/zod').ZodDiscriminatedUnion<string, import('astro/zod').AnyZodObject[]>
-		| import('astro/zod').ZodIntersection<BaseSchemaWithoutEffects, BaseSchemaWithoutEffects>;
-
-	type BaseSchema =
-		| BaseSchemaWithoutEffects
-		| import('astro/zod').ZodEffects<BaseSchemaWithoutEffects>;
-
-	export type SchemaContext = { image: ImageFunction };
-
-	type DataCollectionConfig<S extends BaseSchema> = {
-		type: 'data';
-		schema?: S | ((context: SchemaContext) => S);
-	};
-
-	type ContentCollectionConfig<S extends BaseSchema> = {
-		type?: 'content';
-		schema?: S | ((context: SchemaContext) => S);
-	};
-
-	type CollectionConfig<S> = ContentCollectionConfig<S> | DataCollectionConfig<S>;
-
-	export function defineCollection<S extends BaseSchema>(
-		input: CollectionConfig<S>
-	): CollectionConfig<S>;
 
 	type AllValuesOf<T> = T extends any ? T[keyof T] : never;
 	type ValidContentEntrySlug<C extends keyof ContentEntryMap> = AllValuesOf<
@@ -184,7 +135,111 @@ declare module 'astro:content' {
 	>;
 
 	type ContentEntryMap = {
-		"infopages": {
+		"changelog": {
+"1.md": {
+	id: "1.md";
+  slug: "1";
+  body: string;
+  collection: "changelog";
+  data: InferEntrySchema<"changelog">
+} & { render(): Render[".md"] };
+"2.md": {
+	id: "2.md";
+  slug: "2";
+  body: string;
+  collection: "changelog";
+  data: InferEntrySchema<"changelog">
+} & { render(): Render[".md"] };
+"3.md": {
+	id: "3.md";
+  slug: "3";
+  body: string;
+  collection: "changelog";
+  data: InferEntrySchema<"changelog">
+} & { render(): Render[".md"] };
+};
+"customers": {
+"1.md": {
+	id: "1.md";
+  slug: "1";
+  body: string;
+  collection: "customers";
+  data: InferEntrySchema<"customers">
+} & { render(): Render[".md"] };
+"2.md": {
+	id: "2.md";
+  slug: "2";
+  body: string;
+  collection: "customers";
+  data: InferEntrySchema<"customers">
+} & { render(): Render[".md"] };
+"3.md": {
+	id: "3.md";
+  slug: "3";
+  body: string;
+  collection: "customers";
+  data: InferEntrySchema<"customers">
+} & { render(): Render[".md"] };
+"4.md": {
+	id: "4.md";
+  slug: "4";
+  body: string;
+  collection: "customers";
+  data: InferEntrySchema<"customers">
+} & { render(): Render[".md"] };
+};
+"helpcenter": {
+"1.md": {
+	id: "1.md";
+  slug: "1";
+  body: string;
+  collection: "helpcenter";
+  data: InferEntrySchema<"helpcenter">
+} & { render(): Render[".md"] };
+"2.md": {
+	id: "2.md";
+  slug: "2";
+  body: string;
+  collection: "helpcenter";
+  data: InferEntrySchema<"helpcenter">
+} & { render(): Render[".md"] };
+"3.md": {
+	id: "3.md";
+  slug: "3";
+  body: string;
+  collection: "helpcenter";
+  data: InferEntrySchema<"helpcenter">
+} & { render(): Render[".md"] };
+"4.md": {
+	id: "4.md";
+  slug: "4";
+  body: string;
+  collection: "helpcenter";
+  data: InferEntrySchema<"helpcenter">
+} & { render(): Render[".md"] };
+"5.md": {
+	id: "5.md";
+  slug: "5";
+  body: string;
+  collection: "helpcenter";
+  data: InferEntrySchema<"helpcenter">
+} & { render(): Render[".md"] };
+"6.md": {
+	id: "6.md";
+  slug: "6";
+  body: string;
+  collection: "helpcenter";
+  data: InferEntrySchema<"helpcenter">
+} & { render(): Render[".md"] };
+};
+"infopages": {
+"about.md": {
+	id: "about.md";
+  slug: "about";
+  body: string;
+  collection: "infopages";
+  data: InferEntrySchema<"infopages">
+} & { render(): Render[".md"] };
 "cookies.md": {
 	id: "cookies.md";
   slug: "cookies";
@@ -212,6 +267,80 @@ declare module 'astro:content' {
   body: string;
   collection: "infopages";
   data: InferEntrySchema<"infopages">
+} & { render(): Render[".md"] };
+};
+"integrations": {
+"1.md": {
+	id: "1.md";
+  slug: "1";
+  body: string;
+  collection: "integrations";
+  data: InferEntrySchema<"integrations">
+} & { render(): Render[".md"] };
+"2.md": {
+	id: "2.md";
+  slug: "2";
+  body: string;
+  collection: "integrations";
+  data: InferEntrySchema<"integrations">
+} & { render(): Render[".md"] };
+"3.md": {
+	id: "3.md";
+  slug: "3";
+  body: string;
+  collection: "integrations";
+  data: InferEntrySchema<"integrations">
+} & { render(): Render[".md"] };
+"4.md": {
+	id: "4.md";
+  slug: "4";
+  body: string;
+  collection: "integrations";
+  data: InferEntrySchema<"integrations">
+} & { render(): Render[".md"] };
+"5.md": {
+	id: "5.md";
+  slug: "5";
+  body: string;
+  collection: "integrations";
+  data: InferEntrySchema<"integrations">
+} & { render(): Render[".md"] };
+"6.md": {
+	id: "6.md";
+  slug: "6";
+  body: string;
+  collection: "integrations";
+  data: InferEntrySchema<"integrations">
+} & { render(): Render[".md"] };
+};
+"jobs": {
+"1.md": {
+	id: "1.md";
+  slug: "1";
+  body: string;
+  collection: "jobs";
+  data: InferEntrySchema<"jobs">
+} & { render(): Render[".md"] };
+"2.md": {
+	id: "2.md";
+  slug: "2";
+  body: string;
+  collection: "jobs";
+  data: InferEntrySchema<"jobs">
+} & { render(): Render[".md"] };
+"3.md": {
+	id: "3.md";
+  slug: "3";
+  body: string;
+  collection: "jobs";
+  data: InferEntrySchema<"jobs">
+} & { render(): Render[".md"] };
+"4.md": {
+	id: "4.md";
+  slug: "4";
+  body: string;
+  collection: "jobs";
+  data: InferEntrySchema<"jobs">
 } & { render(): Render[".md"] };
 };
 "posts": {
@@ -258,6 +387,45 @@ declare module 'astro:content' {
   data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 };
+"store": {
+"1.md": {
+	id: "1.md";
+  slug: "1";
+  body: string;
+  collection: "store";
+  data: InferEntrySchema<"store">
+} & { render(): Render[".md"] };
+"2.md": {
+	id: "2.md";
+  slug: "2";
+  body: string;
+  collection: "store";
+  data: InferEntrySchema<"store">
+} & { render(): Render[".md"] };
+};
+"team": {
+"1.md": {
+	id: "1.md";
+  slug: "1";
+  body: string;
+  collection: "team";
+  data: InferEntrySchema<"team">
+} & { render(): Render[".md"] };
+"2.md": {
+	id: "2.md";
+  slug: "2";
+  body: string;
+  collection: "team";
+  data: InferEntrySchema<"team">
+} & { render(): Render[".md"] };
+"3.md": {
+	id: "3.md";
+  slug: "3";
+  body: string;
+  collection: "team";
+  data: InferEntrySchema<"team">
+} & { render(): Render[".md"] };
+};
 
 	};
 
@@ -267,5 +435,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	type ContentConfig = typeof import("../src/content/config");
+	export type ContentConfig = typeof import("../src/content/config.js");
 }
