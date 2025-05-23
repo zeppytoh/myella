@@ -12,7 +12,7 @@ export default defineConfig({
   markdown: {
     drafts: true,
     shikiConfig: {
-      theme: "github-light"
+      theme: "night-owl"
     }
   },
   shikiConfig: {
