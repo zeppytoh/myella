@@ -1,131 +1,166 @@
-<div
-  class="mx-auto w-full bg-lila-500 2xl:border-2 justify-center sticky top-0 z-20 2xl:max-w-7xl border-y-2 border-black">
-  <div
-    class="mx-auto w-full flex flex-col lg:flex-row py-6 md:py-0 lg:items-center lg:justify-between 2xl:max-w-7xl px-8 md:px-0"
-    x-data="{ open: false }">
-    <div class="text-black items-center flex justify-between flex-row">
-      <a
-        class="items-center font-bold gap-3 inline-flex text-lg tracking-tighter md:hidden"
-        title="link to your page"
-        aria-label="your label"
-        href="/"
-        >Flabbergasted
-      </a>
-      <button
-        class="focus:outline-none focus:shadow-outline md:hidden ml-auto border-2 border-black bg-red-500"
-        @click="open = !open"
-        ><svg
-          class="h-8 w-8"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          ><path
-            :class="{'hidden': open, 'inline-flex': !open }"
-            class="inline-flex"
-            d="M4 6h16M4 12h16M4 18h16"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          ></path><path
-            :class="{'hidden': !open, 'inline-flex': open }"
-            class="hidden"
-            d="M6 18L18 6M6 6l12 12"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-          ></path>
-        </svg>
-      </button>
-    </div>
-    <nav
-      :class="{'flex': open, 'hidden': !open}"
-      class="flex-col items-center flex-grow hidden md:flex text-black text-lg font-medium tracking-wide md:flex-row md:justify-start md:mt-0 gap-4 lg:p-0 py-2 md:py-0 md:px-0 md:pb-0 px-5">
-      <a
-        class="duration-300 focus:text-orange/90 hover:text-lila-900  px-4 py-2 transform transition md:ml-8 lg:ml-16 2xl:ml-0"
-        title="link to your page"
-        aria-label="your label"
-        href="/"
-        >Overview
-      </a>
+---
+// Assets
+import StripesBG from "@/components/assets/StripesBG.astro";
+// Fundations
+import Logo from "@/components/assets/Logo.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import X from "@/components/fundations/icons/X.astro";
+const navigationLinks = [
+  {
+    title: "Overview",
+    href: "/system/overview",
+  },
+  {
+    title: "Blog",
+    href: "/blog/home",
+  },
+  {
+    title: "Buy Flabbergasted",
+    href: "https://buy.polar.sh/polar_cl_2j5VM253qUuFBZNGVLbOZV29RcvGWhxHhy5KoLGC8OQ",
+  },
+];
+---
 
-      <a
-        class="duration-300 focus:text-orange/90 hover:text-lila-900 px-4 py-2 transform transition"
-        title="link to your page"
-        aria-label="your label"
-        href="/components/overview"
-        >Components
-      </a>
-      <div
-        @click.away="open = false"
-        class="relative"
-        x-data="{ open: false }">
-        <button
-          @click="open = !open"
-          class="duration-300 focus:text-orange/90 hover:text-lila-900  px-4 py-2 transform transition inline-flex items-center gap-3"
-          ><span>Style Guide</span><svg
-            :class="{'rotate-180': open, 'rotate-0': !open}"
-            xmlns="http://www.w3.org/2000/svg"
-            class="inline h-4 transition-transform duration-200 transform rotate-0 icon icon-tabler icon-tabler-chevron-down"
-            viewBox="0 0 24 24"
-            stroke-width="2"
+<div
+  id="nav-wrapper"
+  class="fixed inset-x-0 top-0 w-full mx-auto z-51 bg-base-950"
+>
+  <Wrapper
+    id="second-wrapper"
+    variant="paddinglessDesktop"
+    class="py-4 border-b lg:py-8 border-base-800"
+  >
+    <div
+      id="navigation-wrapper"
+      class="relative flex flex-col md:items-center md:justify-start md:gap-12 md:flex-row"
+    >
+      <div class="flex flex-row items-center justify-between">
+        <a href="/" class="flex items-center text-xs text-white gap-2">
+          <span class="sr-only">Go to homepage</span>
+          <Logo class="h-8" />
+          Flabbergasted
+        </a>
+        <Button
+          iconOnly
+          id="menu-toggle"
+          size="xs"
+          variant="muted"
+          class="md:hidden"
+        >
+          <svg
+            slot="icon"
+            class="size-4"
             stroke="currentColor"
             fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><path
-              stroke="none"
-              d="M0 0h24v24H0z"
-              fill="none"
-            ></path><path d="M6 9l6 6l6 -6"></path></svg
-          ></button
-        ><div
-          x-show="open"
-          style="display: none;"
-          x-transition:enter="transition ease-out duration-100"
-          x-transition:enter-start="transform opacity-0 scale-95"
-          x-transition:enter-end="transform opacity-100 scale-100"
-          x-transition:leave="transition ease-in duration-75"
-          x-transition:leave-start="transform opacity-100 scale-100"
-          x-transition:leave-end="transform opacity-0 scale-95"
-          class="absolute right-0 z-10 w-auto mt-2 origin-top-right rounded-lg bg-white ring-2 ring-black focus:outline-none"
-          role="menu"
-          aria-orientation="vertical"
-          aria-labelledby="menu-button"
-          tabindex="-1">
+            viewBox="0 0 24 24"
+          >
+            <path
+              id="menu-icon"
+              class="inline-flex"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+            <path
+              id="close-icon"
+              class="hidden"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </Button>
+      </div>
+      <nav
+        id="navigation-menu"
+        class="fixed inset-0 flex flex-col justify-between h-full py-12 bg-black opacity-0 pointer-events-none md:bg-none md:bg-transparent lg:p-0 md:p-0 transform transition-all duration-300 ease-in-out -translate-y-4 md:relative md:inset-auto md:opacity-100 md:pointer-events-auto md:translate-y-0 md:w-full"
+      >
+        <Button
+          iconOnly
+          variant="muted"
+          size="xs"
+          id="menu-close"
+          class="absolute top-4 right-4 md:hidden"
+          aria-label="Close menu"
+        >
+          <X slot="icon" size="sm" />
+        </Button>
+        <div
+          class="relative flex flex-col items-start justify-start w-full h-full px-8 py-12 md:py-0 gap-12 md:px-0 md:flex-row md:items-center md:text-left overflow-hidden"
+        >
           <div
-            class="py-1 bg-white rounded-xl"
-            role="none">
-            <a
-              title="link to your page"
-              aria-label="your label"
-              href="/components/typography"
-              class="block text-left px-4 py-2 text-sm text-black hover:text-lila-800 w-full"
-              role="menuitem"
-              tabindex="-1"
-              id="menu-item-0"
-              >Typography
-            </a>
-            <a
-              title="link to your page"
-              aria-label="your label"
-              href="/components/colors"
-              class="block text-left px-4 py-2 text-sm text-black hover:text-lila-800 w-full"
-              role="menuitem"
-              tabindex="-1"
-              id="menu-item-2"
-              >Colors</a
+            aria-hidden="true"
+            class="block md:hidden absolute inset-0 pointer-events-none my-12 bg-accent-vertical-stripes w-[10%] ml-auto"
+          >
+          </div>
+          <StripesBG
+            variant="light"
+            class="absolute md:hidden inset-0 h-full -mx-px w-[10%] ml-auto"
+          />
+          <StripesBG
+            variant="accent"
+            class="absolute md:hidden inset-0 h-full -mx-px w-[25%] ml-auto"
+          />
+          <StripesBG
+            variant="base"
+            class="absolute md:hidden inset-0 h-full -mx-px w-[40%] ml-auto"
+          />
+          <a href="/" class="md:hidden">
+            <span class="sr-only">Go to homepage</span>
+            <Logo class="h-12 text-white" />
+          </a>
+          <div
+            class="relative flex flex-col gap-2 md:gap-4 md:flex-row md:mr-auto"
+          >
+            {
+              navigationLinks.map((link, index) => (
+                <a
+                  href={link.href}
+                  class="text-2xl text-white md:text-xs hover:text-base-600 "
+                >
+                  {link.title}
+                </a>
+              ))
+            }
+          </div>
+          <div class="flex flex-wrap items-center mt-auto gap-2">
+            <Button
+              isLink={true}
+              size="xs"
+              variant="muted"
+              href="/forms/sign-in"
             >
+              Get started
+            </Button>
           </div>
         </div>
-      </div>
-
-      <a
-        class="text-white md:ml-auto bg-black border-l-2 border-black duration-500 ease-in-out focus:outline-none ring-inset ring-offset-black focus:ring-2 focus:ring-black focus:ring-offset-2 h-12 lg:h-20 hover:bg-white hover:text-black inline-flex tracking-wide items-center justify-center px-6 text-center transform transition py-2 md:py-4"
-        title="link to your page"
-        aria-label="your label"
-        href="https://buy.polar.sh/polar_cl_2j5VM253qUuFBZNGVLbOZV29RcvGWhxHhy5KoLGC8OQ"
-        ><span>Buy Flabbergasted</span>
-      </a>
-    </nav>
-  </div>
+      </nav>
+    </div>
+  </Wrapper>
 </div>
+<script type="module">
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const menuClose = document.getElementById("menu-close");
+    const menuIcon = document.getElementById("menu-icon");
+    const closeIcon = document.getElementById("close-icon");
+    const navigationMenu = document.getElementById("navigation-menu");
+    // Toggle mobile menu
+    function toggleMenu(open) {
+      console.log(`Toggling menu. Open: ${open}`); // Debug log to check the state of the toggle
+      navigationMenu.classList.toggle("opacity-100", open);
+      navigationMenu.classList.toggle("translate-y-0", open);
+      navigationMenu.classList.toggle("pointer-events-auto", open);
+      navigationMenu.classList.toggle("opacity-0", !open);
+      navigationMenu.classList.toggle("-translate-y-4", !open);
+      navigationMenu.classList.toggle("pointer-events-none", !open);
+      menuIcon.classList.toggle("hidden", open);
+      closeIcon.classList.toggle("hidden", !open);
+    }
+    // Event Listeners
+    menuToggle.addEventListener("click", () => toggleMenu(true));
+    menuClose.addEventListener("click", () => toggleMenu(false));
+  });
+</script>

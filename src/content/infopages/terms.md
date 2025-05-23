@@ -1,6 +1,6 @@
 ---
 page: Terms
-pubDate: 2023-12-22
+pubDate: 2024-01-01
 ---
 This privacy policy sets out how Unwrapped AB collects, processes and uses your Personal Information through your use of our Services.
 

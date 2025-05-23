@@ -1,43 +1,113 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+// Assets
+import StripesBG from "@/components/assets/StripesBG.astro";
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import User from "@/components/fundations/icons/User.astro";
+import Shield from "@/components/fundations/icons/Shield.astro";
+import Settings from "@/components/fundations/icons/Settings.astro";
+import CreditCard from "@/components/fundations/icons/CreditCard.astro";
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
 const { frontmatter } = Astro.props;
+const icons = {
+  user: User,
+  settings: Settings,
+  shield: Shield,
+  creditCard: CreditCard,
+};
+
+// Breadcrumbs Data
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Help Center", href: "/helpcenter/home" },
+  { label: frontmatter.page, href: "#" }, // Current page (unstyled)
+];
 ---
 
 <BaseLayout>
   <section>
-    <div
-      class="items-center w-full mx-auto 2xl:max-w-7xl 2xl:border-x-2 border-black">
-      <div
-        class="p-8 lg:p-20 lg:py-32 items-center gap-12 h-full bg-lila-500 border-b-2 border-black">
-        <div class="text-center max-w-4xl mx-auto">
-          <p class="text-5xl lg:text-7xl text-black">{frontmatter.page}</p>
-        </div>
+    <Wrapper variant="standard" class="relative pt-48 pb-12 overflow-hidden">
+      <StripesBG
+        variant="base"
+        class="absolute inset-0 h-24 p-20 -mx-px border-b border-base-800"
+      />
+      <div class="max-w-xl mx-auto text-balance">
+        <nav aria-label="Breadcrumb">
+          <ol class="flex items-center text-sm gap-x-2 text-base-400">
+            {
+              breadcrumbs.map((item, index) => (
+                <>
+                  <li>
+                    {index < breadcrumbs.length - 1 ? (
+                      <a
+                        href={item.href}
+                        class="text-xs  hover:text-accent-300"
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <span class="text-xs  text-accent-300">{item.label}</span>
+                    )}
+                  </li>
+                  {index < breadcrumbs.length - 1 && (
+                    <li class="text-base-400">
+                      <ChevronRight size="sm" />
+                    </li>
+                  )}
+                </>
+              ))
+            }
+          </ol>
+        </nav>
+        <Text tag="h1" variant="displayMD" class="mt-12 text-white">
+          {frontmatter.page}
+        </Text>
+        <Text variant="textBase" class="mt-4 text-base-400">
+          {frontmatter.description}
+        </Text>
       </div>
-    </div>
-    <div class="2xl:border-x-2 2xl:max-w-7xl border-black mx-auto p-8 lg:p-20">
-      <div class="max-w-3xl mx-auto">
-        <div class="prose-styles">
-          <slot />
-        </div>
-        <div
-          class="mt-12 border-2 border-black bg-white rounded-xl p-4 max-w-[48rem] mx-auto shadow-large">
-          <div class="items-center inline-flex w-full">
-            <p class="text-black font-semibold">Was this helpful?</p><p></p>
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper variant="standard" class="py-12">
+      <Wrapper variant="prose" class="max-w-xl mx-auto">
+        <Text variant="textBase" class="flex items-center text-base-500 gap-2">
+          Last updated on
+          <time
+            datetime={new Date(frontmatter.lastUpdated).toLocaleDateString(
+              "en-US",
+              {
+                year: "numeric",
+                month: "long",
+              }
+            )}
+          >
+            {
+              new Date(frontmatter.lastUpdated).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+              })
+            }
+          </time>
+        </Text>
+        <slot />
+        <h3>Frequently asked questions</h3>
+        <p>Answers to commonly asked questions about our platform</p>
 
-            <span class="inline-flex rounded-md isolate ml-auto"
-              ><button
-                type="button"
-                class="relative inline-flex items-center focus:translate-y-1 px-4 py-2 text-sm font-semibold text-black duration-200 rounded-l-lg shadow bg-white hover:text-lila-800 ring-2 h-16 ring-inset ring-black focus:z-10 ease-in-out transform transition-all focus:ring-lila-700"
-                >Yes</button
-              ><button
-                type="button"
-                class="relative inline-flex items-center focus:translate-y-1 px-4 py-2 -ml-px text-sm font-semibold text-black shadow duration-200 rounded-r-lg bg-white hover:text-lila-800 ring-2 h-16 ring-inset ring-black focus:z-10 ease-in-out transform transition-all focus:ring-lila-700"
-                >No</button
-              ></span
-            >
-          </div>
-        </div>
-      </div>
-    </div>
+        <ul role="list" class="mt-8">
+          {
+            frontmatter.faq.map((item) => (
+              <li>
+                <h5>{item.question}</h5>
+                <p v>{item.answer}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </Wrapper>
+    </Wrapper>
   </section>
 </BaseLayout>

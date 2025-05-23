@@ -1,0 +1,59 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+// Icons
+import ChevronLeft from "@/components/fundations/icons/ChevronLeft.astro";
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+// Components
+import CustomerEntry1 from "@/components/customers/CustomerEntry1.astro";
+// Content
+import { getCollection } from "astro:content";
+const allCustomers = await getCollection("customers");
+---
+
+<section>
+  <div class="pt-8 overflow-hidden border-t border-base-800">
+    <div class="items-end px-4 grid grid-cols-1 gap-8 lg:grid-cols-2">
+      <div>
+        <Text tag="h2" variant="displayMD" class="text-white font-display">
+          Our customers
+        </Text>
+        <Text
+          tag="p"
+          variant="textBase"
+          class="mt-4 text-base-500 text-balance"
+        >
+          Don’t take our word for it — here’s what the people paying us think.
+        </Text>
+      </div>
+      <div
+        class="flex items-center w-full pointer-events-auto gap-2 lg:justify-end"
+      >
+        <Button
+          iconOnly
+          size="base"
+          variant="muted"
+          aria-label="Previous slide"
+          id="keen-slider-previous"
+        >
+          <ChevronLeft slot="icon" size="sm" />
+        </Button>
+        <Button
+          iconOnly
+          size="base"
+          variant="muted"
+          aria-label="Next slide"
+          id="keen-slider-next"
+        >
+          <ChevronRight slot="icon" size="sm" />
+        </Button>
+      </div>
+    </div>
+    <div class="relative w-full mx-auto mt-12 max-w-screen">
+      <div id="keen-slider" class="relative keen-slider">
+        {allCustomers.map((post) => <CustomerEntry1 post={post} />)}
+      </div>
+    </div>
+  </div>
+</section>
