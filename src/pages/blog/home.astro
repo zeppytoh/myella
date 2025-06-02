@@ -51,7 +51,7 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
     <div class="flex items-center gap-2 border-t border-base-800 px-8 py-4">
       <BlogSearch />
       <div
-        class="relative flex h-full overflow-x-scroll gap-2 scrollable-content snap-x snap-proximity scrollbar-hide"
+        class="relative flex h-full overflow-x-scroll gap-2 py-2 scrollable-content snap-x snap-proximity scrollbar-hide"
       >
         {
           tags.map((tag) => (
