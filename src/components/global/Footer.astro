@@ -64,9 +64,7 @@ const footerLinks = [
           >
             Subscribe, get tips to grow the way you deserve.
           </Text>
-          <form
-            class="justify-between mt-4 sm:flex gap-2"
-          >
+          <form class="justify-between mt-4 sm:flex gap-2">
             <label class="sr-only" for="email-address">Email address</label>
             <input
               autocomplete="email"
@@ -74,13 +72,16 @@ const footerLinks = [
               id="email-address"
               name="email"
               placeholder="Enter your email"
-              required=""
+              required
               type="email"
             />
-            <Button iconOnly size="xl" variant="accent" type="button">
+
+            <Button iconOnly size="xl" variant="accent" type="submit">
               <ArrowRight slot="icon" size="lg" />
+              <span class="sr-only">Subscribe</span>
             </Button>
           </form>
+
           <div class="flex flex-col mt-4 gap-6">
             <p class="text-xl font-normal text-white">
               Lexington Themes <span>
@@ -96,6 +97,7 @@ const footerLinks = [
                 href="#_"
               >
                 <XBrand slot="icon" size="sm" />
+                <span class="sr-only">Follow on X</span>
               </Button>
 
               <Button
@@ -106,6 +108,7 @@ const footerLinks = [
                 href="#_"
               >
                 <GitHub slot="icon" size="sm" />
+                <span class="sr-only">View on GitHub</span>
               </Button>
             </div>
           </div>
