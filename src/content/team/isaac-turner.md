@@ -1,6 +1,5 @@
 ---
 name: Isaac Turner
-bgColor: bg-meshLightBlue
 role: Lifestyle & Culture Writer
 bio: |
   Isaac Turner delves into the ever-evolving world of culture and lifestyle, covering everything from emerging trends to the influence of modern society on personal choices. His writing explores the way entertainment, fashion, and social movements shape daily life.

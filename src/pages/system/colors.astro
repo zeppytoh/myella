@@ -5,25 +5,12 @@ import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 const colors = [
   {
-    name: " Vertical and Horizontal Stripes",
+    name: "Accents",
     shades: [
-      { name: "Base Vertical", class: "bg-base-vertical-stripes" },
-      { name: "Base Horizontal", class: "bg-base-horizontal-stripes" },
-      { name: "Accent Vertical", class: "bg-accent-vertical-stripes" },
-      { name: "Accent Horizontal", class: "bg-accent-horizontal-stripes" },
-      { name: "Light Vertical", class: "bg-light-vertical-stripes" },
-      { name: "Light Horizontal", class: "bg-light-horizontal-stripes" },
-    ],
-  },
-  {
-    name: "Mesh Gradients",
-    shades: [
-      { name: "Light Blue", class: "bg-meshLightBlue" },
-      { name: "Rainbow", class: "bg-meshRainbow" },
-      { name: "Purple", class: "bg-meshPurple" },
-      { name: "Yellow", class: "bg-meshYellow" },
-      { name: "Magenta", class: "bg-meshMagenta" },
-      { name: "Green", class: "bg-meshGreen" },
+      { name: "Yellow", class: "bg-yellow" },
+      { name: "Green", class: "bg-green" },
+      { name: "Pink", class: "bg-pink" },
+      { name: "Black", class: "bg-black" },
     ],
   },
   {
@@ -33,13 +20,13 @@ const colors = [
       { name: "Accent 100", class: "bg-accent-100" },
       { name: "Accent 200", class: "bg-accent-200" },
       { name: "Accent 300", class: "bg-accent-300" },
-      { name: "Accent 400", class: "bg-accent-400" },
-      { name: "Accent 500", class: "bg-accent-500" },
+      { name: "Accent 400", class: "bg-accent-200" },
+      { name: "Accent 500", class: "bg-accent-300" },
       { name: "Accent 600", class: "bg-accent-600" },
       { name: "Accent 700", class: "bg-accent-700" },
       { name: "Accent 800", class: "bg-accent-800" },
       { name: "Accent 900", class: "bg-accent-900" },
-      { name: "Accent 950", class: "bg-accent-950 outline outline-accent-900" },
+      { name: "Accent 950", class: "bg-accent-950 " },
     ],
   },
   {
@@ -60,25 +47,30 @@ const colors = [
   },
 ];
 ---
-
 <BaseLayout>
   <section>
-    <Wrapper variant="standard" class="relative pt-32 pb-12">
-      <Text tag="h1" variant="textBase" class="font-medium text-white">
+    <Wrapper variant="standard" class="py-24">
+      <Text
+        tag="h1"
+        variant="displaySM"
+        class="font-medium uppercase text-accent-950 font-display"
+      >
         Colors
       </Text>
       <div class="flex flex-col mt-12 gap-12">
         {
           colors.map((color) => (
             <div class="flex flex-col gap-2">
-              <h3 class="text-xs font-semibold text-white uppercase dark:text-white">
+              <h3 class="text-xs font-semibold uppercase dark:text-white text-base-900">
                 {color.name}
               </h3>
-              <div class="mt-2 grid grid-cols-2 lg:grid-cols-8 gap-1 gap-y-8">
+              <div class="mt-2 grid grid-cols-1 md:grid-cols-5 lg:grid-cols-11 gap-3  gap-y-8">
                 {color.shades.map((shade) => (
                   <div class="flex flex-col gap-2">
-                    <div class={`size-full aspect-square  ${shade.class}`} />
-                    <span class="text-xs text-base-500">{shade.name}</span>
+                    <div
+                      class={`size-full aspect-square  ${shade.class}`}
+                    />
+                    <span class="text-xs text-base-600">{shade.name}</span>
                   </div>
                 ))}
               </div>

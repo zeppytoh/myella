@@ -1,6 +1,5 @@
 ---
-
-
+import Button from "@/components/fundations/elements/Button.astro";
 // ShareButtons.astro
 interface Props {
   url?: string;
@@ -12,34 +11,42 @@ const { url, title, description, contentType = "blog" } = Astro.props;
 ---
 
 <div class="flex flex-wrap gap-4">
-  <button
+  <Button
+    size="base"
+    variant="default"
     id="twitter-share"
-    class="text-xs text-left text-base-600 hover:text-base-800 duration-300"
+    class="text-sm text-left text-base-600 hover:text-base-800 duration-300"
     aria-label="Share on X"
   >
     X
-  </button>
-  <button
+  </Button>
+  <Button
+    size="base"
+    variant="default"
     id="facebook-share"
-    class="text-xs text-left text-base-600 hover:text-base-800 duration-300"
+    class="text-sm text-left text-base-600 hover:text-base-800 duration-300"
     aria-label="Share on Facebook"
   >
     Facebook
-  </button>
-  <button
+  </Button>
+  <Button
+    size="base"
+    variant="default"
     id="linkedin-share"
-    class="text-xs text-left text-base-600 hover:text-base-800 duration-300"
+    class="text-sm text-left text-base-600 hover:text-base-800 duration-300"
     aria-label="Share on LinkedIn"
   >
     Linkedin
-  </button>
-  <button
+  </Button>
+  <Button
+    size="base"
+    variant="default"
     id="copy-link"
-    class="text-xs text-left text-base-600 hover:text-base-800 duration-300"
+    class="text-sm text-left text-base-600 hover:text-base-800 duration-300"
     aria-label="Copy link"
   >
     Link
-  </button>
+  </Button>
 </div>
 <script define:vars={{ url, title, description, contentType }}>
   // Get the current page URL and title, using custom values if provided

@@ -10,18 +10,22 @@ import Plus from "@/components/fundations/icons/Plus.astro";
 
 <BaseLayout>
   <section>
-    <Wrapper variant="standard" class="relative pt-32 pb-12">
-      <Text tag="h1" variant="textBase" class="font-medium text-white">
-        Buttons
+    <Wrapper variant="standard" class="py-24">
+      <Text
+        tag="h1"
+        variant="displaySM"
+        class="font-medium uppercase text-accent-950 font-display"
+      >
+        Links
       </Text>
-      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12 text-base-400">
+      <div class="mt-12 grid grid-cols-1 col-span-full lg:grid-cols-3">
         <!-- Default -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div class="w-full md:col-span-2">
             <Text
               tag="p"
               variant="textXS"
-              class="font-medium text-white uppercase"
+              class="font-medium uppercase text-base-900"
             >
               Default text
             </Text>
@@ -53,7 +57,7 @@ import Plus from "@/components/fundations/icons/Plus.astro";
             <Text
               tag="p"
               variant="textXS"
-              class="font-medium text-white uppercase"
+              class="font-medium uppercase text-base-900"
             >
               Icon
             </Text>
@@ -111,12 +115,12 @@ import Plus from "@/components/fundations/icons/Plus.astro";
           </div>
         </div>
         <!-- Accent -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div class="w-full md:col-span-2">
             <Text
               tag="p"
               variant="textXS"
-              class="font-medium text-white uppercase"
+              class="font-medium uppercase text-base-900"
             >
               Accent text
             </Text>
@@ -148,7 +152,7 @@ import Plus from "@/components/fundations/icons/Plus.astro";
             <Text
               tag="p"
               variant="textXS"
-              class="font-medium text-white uppercase"
+              class="font-medium uppercase text-base-900"
             >
               Icon
             </Text>
@@ -206,12 +210,12 @@ import Plus from "@/components/fundations/icons/Plus.astro";
           </div>
         </div>
         <!-- Muted -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div class="w-full md:col-span-2">
             <Text
               tag="p"
               variant="textXS"
-              class="font-medium text-white uppercase"
+              class="font-medium uppercase text-base-900"
             >
               Muted text
             </Text>
@@ -243,7 +247,7 @@ import Plus from "@/components/fundations/icons/Plus.astro";
             <Text
               tag="p"
               variant="textXS"
-              class="font-medium text-white uppercase"
+              class="font-medium uppercase text-base-900"
             >
               Icon
             </Text>
@@ -277,115 +281,6 @@ import Plus from "@/components/fundations/icons/Plus.astro";
               <Button isLink={true} href="#_" size="xl" variant="muted" iconOnly
                 ><Plus slot="icon" size="xl" /></Button
               >
-            </div>
-          </div>
-        </div>
-        <!-- Alternative -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div>
-            <Text
-              tag="p"
-              variant="textXS"
-              class="font-medium text-white uppercase"
-            >
-              Alternative text
-            </Text>
-            <div class="flex flex-col mt-2 gap-4">
-              <Button isLink={true} href="#_" size="xxs" variant="alternative">
-                Alternative XXS
-              </Button>
-              <Button isLink={true} href="#_" size="xs" variant="alternative">
-                Alternative XS
-              </Button>
-              <Button isLink={true} href="#_" size="sm" variant="alternative">
-                Alternative SM
-              </Button>
-              <Button isLink={true} href="#_" size="base" variant="alternative">
-                Alternative Base
-              </Button>
-              <Button isLink={true} href="#_" size="md" variant="alternative">
-                Alternative MD
-              </Button>
-              <Button isLink={true} href="#_" size="lg" variant="alternative">
-                Alternative LG
-              </Button>
-              <Button isLink={true} href="#_" size="xl" variant="alternative">
-                Alternative XL
-              </Button>
-            </div>
-          </div>
-          <div>
-            <Text
-              tag="p"
-              variant="textXS"
-              class="font-medium text-white uppercase"
-            >
-              Icon
-            </Text>
-            <div class="flex flex-col mt-2 gap-4">
-              <Button
-                isLink={true}
-                href="#_"
-                size="xxs"
-                variant="alternative"
-                iconOnly
-              >
-                <Plus slot="icon" size="sm" />
-              </Button>
-              <Button
-                isLink={true}
-                href="#_"
-                size="xs"
-                variant="alternative"
-                iconOnly
-              >
-                <Plus slot="icon" size="sm" />
-              </Button>
-              <Button
-                isLink={true}
-                href="#_"
-                size="sm"
-                variant="alternative"
-                iconOnly
-              >
-                <Plus slot="icon" size="base" />
-              </Button>
-              <Button
-                isLink={true}
-                href="#_"
-                size="base"
-                variant="alternative"
-                iconOnly
-              >
-                <Plus slot="icon" size="base" />
-              </Button>
-              <Button
-                isLink={true}
-                href="#_"
-                size="md"
-                variant="alternative"
-                iconOnly
-              >
-                <Plus slot="icon" size="lg" />
-              </Button>
-              <Button
-                isLink={true}
-                href="#_"
-                size="lg"
-                variant="alternative"
-                iconOnly
-              >
-                <Plus slot="icon" size="xl" />
-              </Button>
-              <Button
-                isLink={true}
-                href="#_"
-                size="xl"
-                variant="alternative"
-                iconOnly
-              >
-                <Plus slot="icon" size="xl" />
-              </Button>
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-// Data array
+// Grouped page data from the first version into Static & Content Collection
 const pageData = [
   {
     categoryTitle: "Static",
@@ -11,37 +11,20 @@ const pageData = [
       {
         sectionTitle: "Landing Pages",
         links: [
-          {
-            title: "Home",
-            url: "/",
-          },
-
-          {
-            title: "About",
-            url: "/about",
-          },
+          { title: "Landing One", url: "/" },
           { title: "404", url: "/404" },
         ],
       },
       {
-        sectionTitle: "Forms ",
+        sectionTitle: "Forms Pages",
         links: [
-          {
-            title: "Contact",
-            url: "/forms/contact",
-          },
-          {
-            title: "Signin",
-            url: "/forms/sign-in",
-          },
-          {
-            title: "Sign up",
-            url: "/forms/sign-up",
-          },
+          { title: "Contact", url: "/forms/contact" },
+          { title: "Login", url: "/forms/login" },
+          { title: "Sign up", url: "/forms/signup" },
         ],
       },
       {
-        sectionTitle: "System Pages",
+        sectionTitle: "System",
         links: [
           { title: "Links", url: "/system/links" },
           { title: "Buttons", url: "/system/buttons" },
@@ -60,25 +43,25 @@ const pageData = [
     ],
   },
   {
-    categoryTitle: "Content Collection",
+    categoryTitle: "Content Collections",
     links: [
       {
-        sectionTitle: "Blog Pages",
+        sectionTitle: "Blog ",
         links: [
-          {
-            title: "Blog Home",
-            url: "/blog/home",
-          },
-          {
-            title: "Blog Post",
-            url: "/blog/posts/1",
-          },
+          { title: "Home", url: "/blog/" },
+          { title: "Post", url: "/blog/posts/1" },
           { title: "Tag index", url: "/blog/tags" },
+          { title: "Tag category", url: "/blog/tags/health" },
+        ],
+      },
+      {
+        sectionTitle: "Team",
+        links: [
+          { title: "Home", url: "/team/" },
           {
-            title: "Tag Category",
-            url: "/blog/tags/health",
+            title: "Details",
+            url: "/team/jordan-wells",
           },
-          { title: "RSS", url: "/rss.xml" },
         ],
       },
       {
@@ -86,7 +69,7 @@ const pageData = [
         links: [
           {
             title: "Home",
-            url: "/helpcenter/home",
+            url: "/helpcenter/",
           },
           {
             title: "Details",
@@ -94,70 +77,12 @@ const pageData = [
           },
         ],
       },
-      {
-        sectionTitle: "Utility Pages",
-        links: [
-          {
-            title: "Terms Of Use",
-            url: "/infopages/terms",
-          },
-          {
-            title: "Privacy Policy",
-            url: "/infopages/privacy",
-          },
-        ],
-      },
-      {
-        sectionTitle: "Integrations",
-        links: [
-          {
-            title: "Home",
-            url: "/integrations/home",
-            ariaLabel: "link to integrations home",
-          },
-          {
-            title: "Details",
-            url: "/integrations/1",
-            ariaLabel: "link to integrations details",
-          },
-        ],
-      },
-      {
-        sectionTitle: "Changelog",
-        links: [
-          {
-            title: "Home",
-            url: "/changelog/home",
-            ariaLabel: "link to changelog home",
-          },
-          {
-            title: "Details",
-            url: "/changelog/1",
-            ariaLabel: "link to changelog details",
-          },
-        ],
-      },
-      {
-        sectionTitle: "Team",
-        links: [
-          {
-            title: "Home",
-            url: "/team/home",
-            ariaLabel: "link to team home",
-          },
-          {
-            title: "Details",
-            url: "/team/jordan-wells",
-            ariaLabel: "link to team details",
-          },
-        ],
-      },
-      {
+       {
         sectionTitle: "Customers",
         links: [
           {
             title: "Home",
-            url: "/customers/home",
+            url: "/customers/",
             ariaLabel: "link to customers home",
           },
           {
@@ -167,47 +92,85 @@ const pageData = [
           },
         ],
       },
+      {
+        sectionTitle: "Info Pages",
+        links: [
+          { title: "Terms", url: "/infopages/terms" },
+          { title: "Privacy Policy", url: "/infopages/privacy" },
+        ],
+      },
+      {
+        sectionTitle: "Integrations",
+        links: [
+          {
+            title: "Home",
+            url: "/integrations/",
+            ariaLabel: "link to integrations home",
+          },
+          {
+            title: "Details",
+            url: "/integrations/1",
+            ariaLabel: "link to integrations details",
+          },
+        ],
+      },
+       {
+        sectionTitle: "Changelog",
+        links: [
+          {
+            title: "Home",
+            url: "/changelog/",
+            ariaLabel: "link to changelog home",
+          },
+          {
+            title: "Details",
+            url: "/changelog/1",
+            ariaLabel: "link to changelog details",
+          },
+        ],
+      },
     ],
   },
 ];
 ---
-
 <BaseLayout>
   <section>
-    <Wrapper variant="standard" class="py-12">
-      <Text tag="h1" variant="textBase" class="font-medium text-white">
+    <Wrapper variant="standard" class="py-24">
+      <Text
+        tag="h1"
+        variant="displayMD"
+        class="font-medium tracking-tight text-black"
+      >
         Overview
       </Text>
       <div class="flex flex-col mt-12 gap-12">
         {
-          pageData.map((category) => (
-            <>
-              <div>
-                <Text tag="h2" variant="textLG" class="font-medium text-white ">
-                  {category.categoryTitle}
-                </Text>
-                <div class="mt-4 gap-y-8 gap-x-4 grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3 ">
-                  {category.links.map((section) => (
-                    <div>
-                      <Text tag="h3" variant="textBase" class="text-white">
-                        {section.sectionTitle}
-                      </Text>
-                      <div class="flex flex-col mt-4 text-sm gap-1 text-base-500">
-                        {section.links.map((link) => (
-                          <a
-                            class="hover:text-white"
-                            title={link.ariaLabel}
-                            href={link.url}
-                          >
-                            {link.title}
-                          </a>
-                        ))}
-                      </div>
+          pageData.map((category, i) => (
+            <div>
+              <Text
+                tag="h2"
+                variant="textLG"
+                class="font-medium  text-base-900"
+              >
+                {category.categoryTitle}
+              </Text>
+              <div class="mt-4 gap-y-8 gap-x-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+                {category.links.map((section, j) => (
+                  <div>
+                    <Text tag="h3" variant="textBase" class="text-base-900">
+                      {section.sectionTitle}
+                    </Text>
+                    <div class="flex flex-col mt-4 text-sm gap-1 text-base-500">
+                      {section.links.map((link, k) => (
+                        <a href={link.url} class="hover:text-base-900">
+                          {link.title}
+                        </a>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
-            </>
+            </div>
           ))
         }
       </div>

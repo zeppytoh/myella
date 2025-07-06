@@ -1,82 +1,100 @@
 ---
 // Assets
-import Cross from "@/components/assets/Cross.astro";
-import StripesBG from "@/components/assets/StripesBG.astro";
+import { Image } from "astro:assets";
+import Blob2 from "@/images/blobs/blob2.svg";
+import Blob3 from "@/images/blobs/blob4.svg";
+
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-
-const features = [
-  {
-    bgClass: "bg-accent-horizontal-stripes",
-    title: "Poop Mode (aka Smelly Chaos)",
-    description:
-      "Blow things up without consequences. Simulate everything, send nothing.",
-  },
-  {
-    bgClass: "bg-base-horizontal-stripes",
-    title: "Webhooks That Actually Work",
-    description:
-      "We ping your server the second something happens — delivery, open, click, bounce, interpretive dance.",
-  },
-  {
-    bgClass: "bg-light-horizontal-stripes",
-    title: "Blink-and-yo'll-miss-it speed",
-    description:
-      "Flabbergasted responds faster than you can regret your last input. ",
-  },
-  {
-    bgClass: "bg-meshPurple",
-    title: "Doesn't butcher your address",
-    description:
-      "From “4B Elm St.” to international phone numbers, it nails the details like it's been stalking your mailbox.",
-  },
+// Icons
+import ArrowRight from "@/components/fundations/icons/ArrowRight.astro";
+const featureList = [
+  "Share",
+  "Present",
+  "Gather feedback",
+  "Interact with prototypes",
+  "Smart animate",
 ];
 ---
 
 <section>
   <Wrapper
-    variant="standard"
-    class="relative pt-24 pb-8 border-t lg:pt-32 border-base-800"
+    variant="standardPaddingless"
+    class="border-t-2 divide-y-2 divide-black"
   >
-    <!-- Top Right Plus -->
-    <Cross class="-top-[0.6rem] -right-[0.65rem]" />
-    <!-- Top left Plus -->
-    <Cross class="-top-[0.6rem] -left-[0.65rem]" />
-    <StripesBG
-      variant="base"
-      class="absolute inset-0 mt-auto -mx-px border-t border-base-800 h-1/5"
-    />
-    <div class="relative max-w-2xl mx-auto text-center text-balance">
-      <Text tag="h2" variant="displayMD" class="text-white font-display">
-        Actually understands you in real time, no awkward pauses, no blank
-        stares
-      </Text>
-      <Text tag="p" variant="textBase" class="mt-4 text-base-500">
-        It doesn’t just keep up — it dominates. Complex addresses? Weird phone
-        numbers? Random acronyms no one should be saying out loud? All handled
-        without flinching. You talk, it listens, and responds like it actually
-        paid attention.
-      </Text>
+    <div
+      class="w-full grid grid-cols-1 md:grid-cols-2 divide-y-2 divide-black md:divide-y-0 md:divide-x-2"
+    >
+      <div
+        class="flex flex-col items-center justify-center block w-full h-full aspect-square lg:mt-0 bg-green"
+      >
+        <Image
+          class="size-24 lg:size-82"
+          width={800}
+          height={800}
+          loading="eager"
+          decoding="async"
+          src={Blob2}
+          alt="#_"
+        />
+      </div>
+      <div
+        class="relative items-center h-full p-8 bg-white lg:px-20 gap-12 lg:flex"
+      >
+        <div class="max-w-xl text-left">
+          <Text tag="h2" variant="displayLG" class="font-medium text-black">
+            Staking Rewards
+          </Text>
+          <Text tag="p" variant="textLG" class="mt-4 text-black">
+            Put your crypto assets to work and earn passive income through
+            staking, a feature that allows you to participate in network
+            validation and reap rewards.
+          </Text>
+          <ul class="flex flex-col mt-6 text-black xl:text-xl" role="list">
+            {
+              featureList.map((item) => (
+                <li class="inline-flex items-center gap-3">
+                  <ArrowRight class="size-4" />
+                  {item}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
     </div>
     <div
-      class="relative mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px"
+      class="grid grid-cols-1 lg:grid-cols-2 divide-y-2 divide-black md:divide-y-0 md:divide-x-2"
     >
-      {
-        features.map((feature) => (
-          <div class="flex flex-col justify-between h-full">
-            <div class={`aspect-12/8  ${feature.bgClass}`} />
-            <div class="h-full p-4 pb-24  bg-base-900">
-              <Text tag="h3" variant="textBase" class="text-white ">
-                {feature.title}
-              </Text>
-              <Text tag="p" variant="textSM" class="mt-2  text-base-400">
-                {feature.description}
-              </Text>
-            </div>
+      <div
+        class="relative items-center h-full p-8 bg-white lg:px-20 gap-12 lg:flex"
+      >
+        <div class="max-w-xl mx-auto text-center lg:text-left">
+          <div>
+            <Text tag="h2" variant="displayLG" class="font-medium text-black">
+              Navigating the digital financial frontier
+            </Text>
+            <Text tag="p" variant="textLG" class="mt-4 text-black">
+              Access a diverse range of cryptocurrencies in one unified
+              platform, enabling you to explore and manage various digital
+              assets effortlessly.
+            </Text>
           </div>
-        ))
-      }
+        </div>
+      </div>
+      <div
+        class="flex flex-col items-center justify-center block w-full h-full aspect-square lg:mt-0 bg-pink"
+      >
+        <Image
+          class="size-24 lg:size-82"
+          width={800}
+          height={800}
+          decoding="async"
+          src={Blob3}
+          alt="#_"
+        />
+      </div>
     </div>
   </Wrapper>
 </section>

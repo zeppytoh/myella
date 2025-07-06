@@ -1,6 +1,4 @@
 ---
-// Assets
-import StripesBG from "@/components/assets/StripesBG.astro";
 // Fundations
 import BaseLayout from "./BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
@@ -17,14 +15,10 @@ const breadcrumbs = [
 
 <BaseLayout>
   <section>
-    <Wrapper variant="standard" class="relative pt-48 pb-12 overflow-hidden">
-      <StripesBG
-        variant="base"
-        class="absolute inset-0 h-24 p-20 -mx-px border-b border-base-800"
-      />
-      <div class="max-w-xl mx-auto text-balance">
+    <Wrapper variant="standard" class="pt-32 pb-4 bg-pink">
+      <div class="max-w-xl mx-auto">
         <nav aria-label="Breadcrumb">
-          <ol class="flex items-center text-sm gap-x-2 text-base-400">
+          <ol class="flex items-center text-sm gap-x-2 text-base-600">
             {
               breadcrumbs.map((item, index) => (
                 <>
@@ -32,16 +26,18 @@ const breadcrumbs = [
                     {index < breadcrumbs.length - 1 ? (
                       <a
                         href={item.href}
-                        class="text-xs  hover:text-accent-300"
+                        class="text-xs font-medium hover:text-accent-500 text-base-800"
                       >
                         {item.label}
                       </a>
                     ) : (
-                      <span class="text-xs  text-accent-300">{item.label}</span>
+                      <span class="text-xs font-medium text-black underline">
+                        {item.label}
+                      </span>
                     )}
                   </li>
                   {index < breadcrumbs.length - 1 && (
-                    <li class="text-base-400">
+                    <li class="text-black">
                       <ChevronRight size="sm" />
                     </li>
                   )}
@@ -50,10 +46,14 @@ const breadcrumbs = [
             }
           </ol>
         </nav>
-        <Text tag="h1" variant="displayMD" class="mt-12 text-white">
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="mt-12 font-medium tracking-tight text-black "
+        >
           {frontmatter.page}
         </Text>
-        <Text tag="p" variant="textBase" class="mt-4 text-base-500">
+        <Text tag="p" variant="textBase" class="mt-4 text-black">
           <time datetime={new Date(frontmatter.pubDate).toISOString()}>
             {
               new Date(frontmatter.pubDate).toLocaleDateString("en-US", {
@@ -68,7 +68,7 @@ const breadcrumbs = [
     </Wrapper>
   </section>
   <section>
-    <Wrapper variant="standard" class="py-12">
+    <Wrapper variant="standard" class="py-12 border-t-2 border-black">
       <Wrapper variant="prose" class="max-w-xl mx-auto">
         <slot />
       </Wrapper>

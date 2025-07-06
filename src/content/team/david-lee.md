@@ -1,6 +1,5 @@
 ---
 name: David Lee
-bgColor: bg-accent-horizontal-stripes
 role: Fashion & Design Editor
 bio: |
   David Lee is a fashion writer with a focus on sustainable design practices. He writes about the intersection of culture and personal style, offering insights on how the fashion industry is changing.

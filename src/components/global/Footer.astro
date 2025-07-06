@@ -1,104 +1,135 @@
 ---
 // Assets
-import Logo from "@/components/assets/Logo.astro";
-import StripesBG from "@/components/assets/StripesBG.astro";
-// Fundatons
+import BigLogo from "@/components/assets/BigLogo.astro";
+// Fundations
 import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+
+// Icons
+import XBrand from "@/components/fundations/icons/XBRand.astro";
+import GitHub from "@/components/fundations/icons/GitHub.astro";
+import ArrowRight from "@/components/fundations/icons/ArrowRight.astro";
 const footerLinks = [
+  { label: "Overview", url: "/", ariaLabel: "Go to overview" },
   {
-    heading: "Navigation",
-    links: [
-      { label: "Overview", href: "/system/overview" },
-      { label: "Buttons", href: "/system/buttons" },
-      { label: "Links", href: "/system/links" },
-      { label: "Colors", href: "/system/colors" },
-      { label: "Typography", href: "/system/typography" },
-    ],
+    label: "Style Guide",
+    url: "/style-guide",
+    ariaLabel: "View the style guide",
   },
   {
-    heading: "Stay updated",
-    links: [
-      {
-        label: "License",
-        href: "https://www.lexingtonthemes.com/legal/license",
-      },
-      {
-        label: "Documentation",
-        href: "https://www.lexingtonthemes.com/documentation",
-      },
-    ],
+    label: "License",
+    url: "https://www.lexingtonthemes.com/license",
+    ariaLabel: "View license",
+    external: true,
   },
   {
-    heading: "Socials",
-    links: [
-      {
-        label: "@lexingtonthemes",
-        href: "https://twitter.com/lexingtonthemes",
-      },
-      {
-        label: "@Mike_Andreuzza",
-        href: "https://twitter.com/Mike_Andreuzza",
-      },
-    ],
+    label: "Documentation",
+    url: "https://www.lexingtonthemes.com/documentation",
+    ariaLabel: "View documentation",
+    external: true,
   },
   {
-    heading: "More Themes",
-    links: [
-      {
-        label: "Lexington Themes",
-        href: "https://lexingtonthemes.com/",
-      },
-    ],
+    label: "@lexingtonthemes",
+    url: "https://x.com/lexingtonthemes",
+    ariaLabel: "Visit Lexington Themes on X",
+    external: true,
+  },
+  {
+    label: "@Mike_Andreuzza",
+    url: "https://x.com/mike_andreuzza",
+    ariaLabel: "Visit Mike Andreuzza on X",
+    external: true,
+  },
+  {
+    label: "Get the bundle",
+    url: "https://lexingtonthemes.com/pricing",
+    ariaLabel: "View pricing and get the bundle",
+    external: true,
   },
 ];
 ---
 
-<footer>
-  <Wrapper
-    variant="paddinglessDesktop"
-    class="relative py-12 overflow-hidden border-white borderb"
-  >
-    <div class="relative pb-24 gap-8 grid grid-cols-1 lg:grid-cols-3">
-      <div class="text-white">
-        <a href="/" class="flex items-center text-sm text-white gap-2">
-          <span class="sr-only">Go to homepage</span>
-          <Logo class="h-6" />
-          Flabbergasted
-        </a>
-        <p class="mt-1 text-sm font-normal text-base-500 text-balance">
-          Premium multipage themes crafted with Astro and Tailwind CSS
-        </p>
-      </div>
-      <div class="grid grid-cols-2 gap-8 xl:col-span-2 xl:col-start-3">
-        {
-          footerLinks.map((section) => (
-            <div>
-              <Text tag="h3" variant="textBase" class="text-white font-display">
-                {section.heading}
-              </Text>
-              <ul role="list" class="mt-2 text-sm space-y-1 text-base-600">
-                {section.links.map((link) => (
-                  <li>
-                    <a
-                      title="Button to your page"
-                      aria-label="your label"
-                      href={link.href}
-                      class="hover:text-white"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+<footer class="overflow-hidden">
+  <Wrapper variant="standard" class="pt-12 bg-black border-t">
+    <div
+      class="items-start pb-12 grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-32 lg:pb-48"
+    >
+      <div class="flex flex-col max-w-xl gap-6 lg:col-span-2">
+        <div>
+          <Text
+            tag="h2"
+            variant="displayLG"
+            class="font-medium tracking-tight text-white lg:text-5xl"
+          >
+            Subscribe, get tips to grow the way you deserve.
+          </Text>
+          <form
+            class="justify-between mt-4 sm:flex gap-2"
+          >
+            <label class="sr-only" for="email-address">Email address</label>
+            <input
+              autocomplete="email"
+              class="w-full px-5 py-3 text-sm text-center placeholder-black bg-white border-2 rounded-lg shadow h-14 border-accent-400 lg:text-left focus:ring-black focus:border-white shadow-accent-400 focus:shadow-none duration-300 focus:translate-y-1"
+              id="email-address"
+              name="email"
+              placeholder="Enter your email"
+              required=""
+              type="email"
+            />
+            <Button iconOnly size="xl" variant="accent" type="button">
+              <ArrowRight slot="icon" size="lg" />
+            </Button>
+          </form>
+          <div class="flex flex-col mt-4 gap-6">
+            <p class="text-xl font-normal text-white">
+              Lexington Themes <span>
+                © Copyright 2023. All rights reserved.</span
+              >
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <Button
+                isLink={true}
+                iconOnly
+                size="sm"
+                variant="accent"
+                href="#_"
+              >
+                <XBrand slot="icon" size="sm" />
+              </Button>
+
+              <Button
+                isLink={true}
+                iconOnly
+                size="sm"
+                variant="accent"
+                href="#_"
+              >
+                <GitHub slot="icon" size="sm" />
+              </Button>
             </div>
+          </div>
+        </div>
+      </div>
+      <nav
+        class="flex flex-col justify-between text-base text-white gap-y-4 l"
+        role="navigation"
+      >
+        {
+          footerLinks.map((link) => (
+            <a
+              class="hover:text-accent-300"
+              href={link.url}
+              aria-label={link.ariaLabel}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noopener noreferrer" : undefined}
+            >
+              {link.label}
+            </a>
           ))
         }
-      </div>
+      </nav>
     </div>
-    <StripesBG
-      variant="light"
-      class="p-20 mt-auto lg:-mx-px aspect-12/4 clip-rect-inset"
-    />
+    <BigLogo class="text-white lg:-mb-6" />
   </Wrapper>
 </footer>

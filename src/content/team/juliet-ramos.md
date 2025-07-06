@@ -1,6 +1,5 @@
 ---
 name: Juliet Ramos
-bgColor: bg-accent-vertical-stripes
 role: Tech & Culture Columnist
 bio: |
   Juliet Ramos is a passionate columnist covering the intersection of innovation, automation, and design. Her work explores how new technologies are transforming everyday life, from smart homes to artificial intelligence, and their effects on society and culture.

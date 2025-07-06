@@ -1,59 +1,36 @@
 ---
+// Assets
+import { Image } from "astro:assets";
+import Testimonial from "@/images/assets/testimonial.png";
+
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
-import Button from "@/components/fundations/elements/Button.astro";
-// Icons
-import ChevronLeft from "@/components/fundations/icons/ChevronLeft.astro";
-import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
-// Components
-import CustomerEntry1 from "@/components/customers/CustomerEntry1.astro";
-// Content
-import { getCollection } from "astro:content";
-const allCustomers = await getCollection("customers");
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 ---
 
 <section>
-  <div class="pt-8 overflow-hidden border-t border-base-800">
-    <div class="items-end px-4 grid grid-cols-1 gap-8 lg:grid-cols-2">
-      <div>
-        <Text tag="h2" variant="displayMD" class="text-white font-display">
-          Our customers
-        </Text>
-        <Text
-          tag="p"
-          variant="textBase"
-          class="mt-4 text-base-500 text-balance"
-        >
-          Don’t take our word for it — here’s what the people paying us think.
-        </Text>
-      </div>
-      <div
-        class="flex items-center w-full pointer-events-auto gap-2 lg:justify-end"
+  <Wrapper variant="standard" class="py-24 border-t-2 bg-green">
+    <div class="max-w-3xl mx-auto text-center">
+      <Text
+        tag="h3"
+        variant="displayMD"
+        class="font-medium tracking-tight text-black"
       >
-        <Button
-          iconOnly
-          size="base"
-          variant="muted"
-          aria-label="Previous slide"
-          id="keen-slider-previous"
-        >
-          <ChevronLeft slot="icon" size="sm" />
-        </Button>
-        <Button
-          iconOnly
-          size="base"
-          variant="muted"
-          aria-label="Next slide"
-          id="keen-slider-next"
-        >
-          <ChevronRight slot="icon" size="sm" />
-        </Button>
-      </div>
+        "I've been using Ella Mae for over a year now, and it has truly
+        been a game-changer in my crypto journey. The platform's interface
+        helped me understand the complex world of digital finance. "
+      </Text>
+      <Text tag="p" variant="textSM" class="mt-4 tracking-tight text-black">
+        Matt Lenoir Head of Design Ops at FRII-ends
+      </Text>
     </div>
-    <div class="relative w-full mx-auto mt-12 max-w-screen">
-      <div id="keen-slider" class="relative keen-slider">
-        {allCustomers.map((post) => <CustomerEntry1 post={post} />)}
-      </div>
-    </div>
-  </div>
+
+    <Image
+      width={800}
+      height={800}
+      alt="testimonial"
+      src={Testimonial}
+      class="object-cover object-top mx-auto mt-12 border-4 border-black rounded-full shadow-lg size-24 lg:size-72"
+    />
+  </Wrapper>
 </section>

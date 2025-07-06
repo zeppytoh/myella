@@ -1,0 +1,63 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const features = [
+  {
+    title: "Decentralized Exchanges",
+    description:
+      "Embrace peer-to-peer trading without intermediaries. Trade directly with other users on our platform, enjoying the benefits of decentralization.",
+    bgColor: "border-b-2 lg:border-r-2 border-black bg-accent-200",
+  },
+  {
+    title: "Staking Rewards",
+    description:
+      "Put your crypto assets to work and earn passive income through staking, a feature that allows you to participate in network validation and reap rewards.",
+    bgColor: "border-b-2 lg:border-r-2 border-black bg-green",
+  },
+  {
+    title: "NFT Marketplace",
+    description:
+      "Immerse yourself in the world of non-fungible tokens (NFTs) with our marketplace. Buy, sell, and even create unique digital collectibles.",
+    bgColor: "border-b-2  border-black bg-yellow",
+  },
+  {
+    title: "Instant Transactions",
+    description:
+      "Experience the convenience of near-instantaneous cryptocurrency transfers, allowing you to send and receive digital assets.",
+    bgColor: "border-b-2 lg:border-r-2 border-black lg:border-b-0 bg-pink",
+  },
+  {
+    title: "Crypto Education",
+    description:
+      "Access a wealth of educational resources to expand your knowledge of blockchain technology.",
+    bgColor:
+      "border-b-2 lg:border-r-2 border-black lg:border-b-0 bg-accent-200",
+  },
+  {
+    title: "Mobile App",
+    description:
+      "Seamlessly trade and manage your crypto assets on the go with our mobile application, offering all the features and convenience you expect.",
+    bgColor: "border-b-2  lg:border-b-0 border-black bg-pink",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standardPaddingless" class="border-t-2">
+    <div class="grid grid-cols-1  lg:grid-cols-3">
+      {
+        features.map((card) => (
+          <div class={`p-8 lg:p-12 ${card.bgColor}`}>
+            <Text tag="h3" variant="displaySM" class="font-medium">
+              {card.title}
+            </Text>
+            <Text tag="p" variant="textLG" class="mt-4 font-medium text-balance">
+              {card.description}
+            </Text>
+          </div>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>

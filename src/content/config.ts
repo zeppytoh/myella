@@ -1,10 +1,9 @@
 import { defineCollection, z } from "astro:content";
-
 const customers = defineCollection({
   schema: ({ image }) =>
     z.object({
       customer: z.string(),
-      bgColor: z.string().optional(),
+
       ctaTitle: z.string().optional(),
       testimonial: z.string().optional(),
       partnership: z.string().optional(),
@@ -27,6 +26,23 @@ const customers = defineCollection({
       }),
     }),
 });
+const helpcenter = defineCollection({
+  schema: z.object({
+    page: z.string(),
+    description: z.string(),
+    category: z.string().optional(),
+    keywords: z.array(z.string()).optional(),
+    lastUpdated: z.string().optional(),
+    faq: z
+      .array(
+        z.object({
+          question: z.string(),
+          answer: z.string(),
+        })
+      )
+      .optional(),
+  }),
+});
 const integrations = defineCollection({
   schema: ({ image }) =>
     z.object({
@@ -48,48 +64,38 @@ const integrations = defineCollection({
       tags: z.array(z.string()),
     }),
 });
-const helpcenter = defineCollection({
-  schema: z.object({
-    iconId: z.string().optional(),
-    page: z.string(),
-    description: z.string(),
-    category: z.string().optional(),
-    keywords: z.array(z.string()).optional(),
-    lastUpdated: z.string().optional(),
-    faq: z
-      .array(
-        z.object({
-          question: z.string(),
-          answer: z.string(),
-        })
-      )
-      .optional(),
-  }),
-});
 const changelog = defineCollection({
   schema: ({ image }) =>
     z.object({
       page: z.string(),
-      bgColor: z.string().optional(),
       description: z.string(),
       pubDate: z.date(),
-     
+      image: z.object({
+        url: image(),
+        alt: z.string(),
+      }),
     }),
 });
-
-const infopages = defineCollection({
-  schema: z.object({
-    page: z.string(),
-    pubDate: z.date(),
-  }),
+const postsCollection = defineCollection({
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      pubDate: z.date(),
+      description: z.string(),
+      team: z.string(),
+      image: z.object({
+        url: image(),
+        alt: z.string(),
+      }),
+      tags: z.array(z.string()),
+    }),
 });
 const team = defineCollection({
   schema: ({ image }) =>
     z.object({
       name: z.string(),
-      bio: z.string().optional(),
       role: z.string().optional(),
-      bgColor: z.string().optional(),
+      bio: z.string().optional(),
       image: z.object({
         url: image(),
         alt: z.string(),
@@ -104,24 +110,12 @@ const team = defineCollection({
         .optional(),
     }),
 });
-
-const postsCollection = defineCollection({
-  schema: ({ image }) =>
-    z.object({
-      title: z.string(),
-      pubDate: z.date(),
-      description: z.string(),
-      team: z.string(),
-      bgColor: z.string().optional(),
-      // Image already passed if wished to use
-      image: z.object({
-        url: image(),
-        alt: z.string(),
-      }),
-      tags: z.array(z.string()),
-    }),
+const infopages = defineCollection({
+  schema: z.object({
+    page: z.string(),
+    pubDate: z.date(),
+  }),
 });
-
 export const collections = {
   team: team,
   customers: customers,

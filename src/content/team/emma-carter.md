@@ -1,7 +1,6 @@
 ---
 name: Emma Carter
 role: Travel & Adventure Writer
-bgColor: bg-meshGreen
 bio: |
   Emma Carter is a seasoned travel writer who specializes in exploring off-the-beaten-path destinations. Her writing captures the essence of remote places, providing readers with a sense of adventure and excitement.
 

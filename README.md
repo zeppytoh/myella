@@ -1,4 +1,4 @@
-# Lula Mae
+# Ella Mae
 
 ## Template Integrations
 

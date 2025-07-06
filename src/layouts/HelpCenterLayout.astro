@@ -1,24 +1,12 @@
 ---
-// Assets
-import StripesBG from "@/components/assets/StripesBG.astro";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Icons
-import User from "@/components/fundations/icons/User.astro";
-import Shield from "@/components/fundations/icons/Shield.astro";
-import Settings from "@/components/fundations/icons/Settings.astro";
-import CreditCard from "@/components/fundations/icons/CreditCard.astro";
+import Plus from "@/components/fundations/icons/Plus.astro";
 import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
 const { frontmatter } = Astro.props;
-const icons = {
-  user: User,
-  settings: Settings,
-  shield: Shield,
-  creditCard: CreditCard,
-};
-
 // Breadcrumbs Data
 const breadcrumbs = [
   { label: "Home", href: "/" },
@@ -26,17 +14,12 @@ const breadcrumbs = [
   { label: frontmatter.page, href: "#" }, // Current page (unstyled)
 ];
 ---
-
 <BaseLayout>
   <section>
-    <Wrapper variant="standard" class="relative pt-48 pb-12 overflow-hidden">
-      <StripesBG
-        variant="base"
-        class="absolute inset-0 h-24 p-20 -mx-px border-b border-base-800"
-      />
-      <div class="max-w-xl mx-auto text-balance">
+    <Wrapper variant="standard" class="pt-32 pb-4 bg-pink">
+      <div class="max-w-xl mx-auto">
         <nav aria-label="Breadcrumb">
-          <ol class="flex items-center text-sm gap-x-2 text-base-400">
+          <ol class="flex items-center text-sm gap-x-2 text-base-600">
             {
               breadcrumbs.map((item, index) => (
                 <>
@@ -44,16 +27,18 @@ const breadcrumbs = [
                     {index < breadcrumbs.length - 1 ? (
                       <a
                         href={item.href}
-                        class="text-xs  hover:text-accent-300"
+                        class="text-xs font-medium hover:text-accent-500 text-base-800"
                       >
                         {item.label}
                       </a>
                     ) : (
-                      <span class="text-xs  text-accent-300">{item.label}</span>
+                      <span class="text-xs font-medium text-black underline">
+                        {item.label}
+                      </span>
                     )}
                   </li>
                   {index < breadcrumbs.length - 1 && (
-                    <li class="text-base-400">
+                    <li class="text-black">
                       <ChevronRight size="sm" />
                     </li>
                   )}
@@ -62,52 +47,74 @@ const breadcrumbs = [
             }
           </ol>
         </nav>
-        <Text tag="h1" variant="displayMD" class="mt-12 text-white">
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="mt-12 font-medium tracking-tight text-black"
+        >
           {frontmatter.page}
         </Text>
-        <Text variant="textBase" class="mt-4 text-base-400">
+        <Text variant="textBase" class="mt-4 text-black">
           {frontmatter.description}
         </Text>
       </div>
     </Wrapper>
   </section>
   <section>
-    <Wrapper variant="standard" class="py-12">
+    <Wrapper variant="standard" class="py-12 border-t-2 border-black">
       <Wrapper variant="prose" class="max-w-xl mx-auto">
-        <Text variant="textBase" class="flex items-center text-base-500 gap-2">
-          Last updated on
-          <time
-            datetime={new Date(frontmatter.lastUpdated).toLocaleDateString(
-              "en-US",
+        <Text tag="p" variant="textBase" class="mt-4 text-black">
+          <span>
+            Last updated on
+            <time datetime="{frontmatter.lastUpdated}">
               {
-                year: "numeric",
-                month: "long",
+                new Date(frontmatter.lastUpdated).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                })
               }
-            )}
-          >
-            {
-              new Date(frontmatter.lastUpdated).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-              })
-            }
-          </time>
+            </time>
+          </span>
         </Text>
         <slot />
-        <h3>Frequently asked questions</h3>
-        <p>Answers to commonly asked questions about our platform</p>
-
-        <ul role="list" class="mt-8">
+      </Wrapper>
+    </Wrapper>
+  </section>
+  <section >
+    <Wrapper variant="standardPaddingless" class="border-t-2 bg-yellow">
+      <div class="grid grid-cols-1 lg:grid-cols-4 lg:divide-x-2 divide-black">
+        <div class="p-8 bg-accent-200">
+          <Text tag="h2" variant="displayXL" class="font-medium text-black">
+            FAQ
+          </Text>
+          <Text tag="p" variant="textLG" class="mt-4 text-black text-balance">
+            Answers to commonly asked questions about our platform
+          </Text>
+        </div>
+        <div class="divide-y-2 divide-black lg:col-span-3">
           {
             frontmatter.faq.map((item) => (
-              <li>
-                <h5>{item.question}</h5>
-                <p v>{item.answer}</p>
-              </li>
+            <details class="p-8 text-left cursor-pointer group">
+                <summary class="flex items-center justify-between w-full text-2xl font-medium text-left text-black select-none  group-open:text-accent-900">
+                {item.question}
+                <div class="flex items-center justify-center w-8 h-8 border-2 border-black rounded-full transform group-open:-rotate-45 duration-300 ease-out shadow-xs shadow-black group-open:bg-black group-open:text-white">
+                  <Plus class="size-6 " />
+                </div>
+              </summary>
+                <div>
+                  <Text
+                    tag="h5"
+                    variant="textBase"
+                    class="font-medium text-base-800"
+                  >
+                  </Text>
+                  <div class="py-4 pt-2 text-xl text-black">{item.answer}</div>
+                </div>
+              </details>
             ))
           }
-        </ul>
-      </Wrapper>
+        </div>
+      </div>
     </Wrapper>
   </section>
 </BaseLayout>

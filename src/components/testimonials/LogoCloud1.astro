@@ -1,6 +1,4 @@
 ---
-// Assets
-import StripesBG from "@/components/assets/StripesBG.astro";
 // Fundations
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Assets
@@ -18,7 +16,6 @@ import logo9 from "@/images/brands/9.svg";
 import logo10 from "@/images/brands/10.svg";
 import logo11 from "@/images/brands/11.svg";
 import logo12 from "@/images/brands/12.svg";
-
 const logos = [
   { src: logo1, alt: "b1 Logo" },
   { src: logo2, alt: "b2 Logo" },
@@ -34,12 +31,10 @@ const logos = [
   { src: logo12, alt: "b12 Logo" },
 ];
 ---
-
 <section>
-  <div class="relative overflow-hidden">
-    <StripesBG variant="base" class="absolute inset-0 p-20 mt-auto -mx-px" />
+  <Wrapper variant="standard" class="relative py-12 overflow-hidden bg-black">
     <div
-      class="relative flex items-center py-8 animate-marquee gap-12 lg:gap-24 space-nowrap pause-on-hover"
+      class="flex items-center  animate-marquee gap-12 lg:gap-24 whitespace-nowrap"
     >
       {
         logos.map((logo) => (
@@ -53,5 +48,5 @@ const logos = [
         ))
       }
     </div>
-  </div>
+  </Wrapper>
 </section>

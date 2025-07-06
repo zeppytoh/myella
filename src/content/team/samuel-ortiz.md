@@ -1,6 +1,5 @@
 ---
 name: Samuel Ortiz
-bgColor: bg-meshGreen
 role: Political Analyst
 bio: |
   Samuel Ortiz is a political analyst with a focus on global politics, public policy, and government affairs. His work delves into the intricate dynamics of geopolitical conflicts, diplomatic relations, and the ever-evolving landscape of international politics.

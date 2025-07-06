@@ -1,28 +1,65 @@
 ---
-// Assets
-import StripesBG from "@/components/assets/StripesBG.astro";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import ChevronRight from "@/components/fundations/icons/ChevronRight.astro";
+import Check from "@/components/fundations/icons/Check.astro";
+
 const { frontmatter } = Astro.props;
+// Breadcrumbs Data
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Customers", href: "/customerss/home" },
+  { label: frontmatter.customer, href: "#" },
+];
 ---
 
 <BaseLayout>
   <section>
-    <Wrapper variant="standard" class="relative pt-32 pb-12 overflow-hidden">
-      <StripesBG
-        variant="base"
-        class="absolute inset-0 h-24 p-20 mt-auto -mx-px border-t border-base-800"
-      />
-      <div class="max-w-xl mx-auto text-balance relative">
-        <Text tag="h1" variant="displayMD" class="text-white">
+    <Wrapper variant="standard" class="pt-32 pb-4">
+      <div class="max-w-xl mx-auto">
+        <nav aria-label="Breadcrumb">
+          <ol class="flex items-center text-sm gap-x-2 text-base-600">
+            {
+              breadcrumbs.map((item, index) => (
+                <>
+                  <li>
+                    {index < breadcrumbs.length - 1 ? (
+                      <a
+                        href={item.href}
+                        class="text-xs font-medium hover:text-accent-500 text-base-800"
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <span class="text-xs font-medium text-black underline">
+                        {item.label}
+                      </span>
+                    )}
+                  </li>
+                  {index < breadcrumbs.length - 1 && (
+                    <li class="text-black">
+                      <ChevronRight size="sm" />
+                    </li>
+                  )}
+                </>
+              ))
+            }
+          </ol>
+        </nav>
+        <Text
+          tag="h1"
+          variant="displayMD"
+          class="mt-12 font-medium tracking-tight text-black"
+        >
           {frontmatter.customer}
         </Text>
-        <Text tag="p" variant="textBase" class="mt-4 text-base-500">
+        <Text tag="p" variant="textBase" class="mt-4 text-black">
           {frontmatter.about}
         </Text>
-        <dl class="flex flex-col mt-8 divide-y divide-base-800">
+        <dl class="flex flex-col mt-8 divide-y divide-base-200">
           {
             Object.entries(frontmatter.details).map(([key, value]) => (
               <div class="flex items-center justify-between py-2 gap-2">
@@ -30,7 +67,7 @@ const { frontmatter } = Astro.props;
                   <Text
                     tag="h4"
                     variant="textSM"
-                    class="font-medium text-white"
+                    class="font-medium text-base-800"
                   >
                     {key}
                   </Text>
@@ -39,7 +76,7 @@ const { frontmatter } = Astro.props;
                   <Text
                     tag="p"
                     variant="textSM"
-                    class="capitalize text-base-400 lg:text-balance"
+                    class="capitalize text-base-500 lg:text-balance"
                   >
                     {value}
                   </Text>
@@ -48,57 +85,65 @@ const { frontmatter } = Astro.props;
             ))
           }
         </dl>
-      </div>
-      <div
-        class="grid grid-cols-1 md:grid-cols-3 gap-px items-start mt-8 relative"
-      >
-        {
-          frontmatter.results.map((result) => (
-            <div class="gap-2 p-4 pb-24 bg-base-800 h-full border-b border-white">
-              <Text tag="p" variant="textBase" class=" text-white">
-                {result}
-              </Text>
-            </div>
-          ))
-        }
+        <div class="flex flex-col mt-8 gap-4">
+          {
+            frontmatter.results.map((result) => (
+              <div class="flex items-center gap-2">
+                <Check size="sm" class="text-accent-500" />
+                <Text tag="p" variant="textSM" class=" text-base-600">
+                  {result}
+                </Text>
+              </div>
+            ))
+          }
+        </div>
       </div>
     </Wrapper>
   </section>
-  <figure class={`p-8 py-48 text-center text-balance  ${frontmatter.bgColor}`}>
-    <blockquote>
-      <Text
-        tag="p"
-        variant="displayMD"
-        class="max-w-2xl mx-auto font-medium tracking-tight text-base-900"
-      >
-        "{frontmatter.testimonial}"
-      </Text>
-    </blockquote>
-  </figure>
   <section>
-    <dl class="items-center grid grid-cols-1 md:grid-cols-2 gap-px">
-      {
-        frontmatter.challengesAndSolutions.map((item) => (
-          <div class="flex flex-col h-full overflow-hidden">
-            <div class="h-full flex flex-col p-4 pt-24 bg-base-900">
-              <dt>
-                <Text tag="h3" variant="displaySM" class="text-white ">
-                  {item.title}
-                </Text>
-              </dt>
-              <dd>
-                <Text tag="p" variant="textSM" class=" text-base-400 mt-4">
-                  {item.content}
-                </Text>
-              </dd>
-            </div>
-            <div class="aspect-12/4 p-4 -mx-px bg-base-vertical-stripes h-full order-first" />
-          </div>
-        ))
-      }
-    </dl>
-    <Wrapper variant="standard" class="py-8 border-t">
+    <Wrapper variant="standard" class="py-4 border-t-2 bg-accent-200">
+      <figure class="p-8 py-24 text-center text-balance">
+        <blockquote>
+          <Text
+            tag="p"
+            variant="displayXL"
+            class="font-medium tracking-tight text-black"
+          >
+            "{frontmatter.testimonial}"
+          </Text>
+        </blockquote>
+      </figure>
+    </Wrapper>
+  </section>
+  <section>
+    <Wrapper variant="standard" class="py-12 border-t-2">
       <div class="max-w-xl mx-auto">
+        <dl class="items-center flex flex-col gap-8">
+          {
+            frontmatter.challengesAndSolutions.map((item) => (
+              <div>
+                <dt>
+                  <Text
+                    tag="h3"
+                    variant="textXL"
+                    class="font-medium font-base-900"
+                  >
+                    {item.title}
+                  </Text>
+                </dt>
+                <dd>
+                  <Text
+                    tag="p"
+                    variant="textLG"
+                    class="mt-2 capitalize text-black "
+                  >
+                    {item.content}
+                  </Text>
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
         <Wrapper variant="prose" class="mt-12"><slot /></Wrapper>
       </div>
     </Wrapper>

@@ -1,6 +1,5 @@
 ---
 name: Oliver Grant
-bgColor: bg-light-horizontal-stripes
 role: Finance & Investment Writer
 bio: |
   Oliver Grant is a finance and investment writer with a focus on personal finance, investment strategies, and market trends. With a deep understanding of the financial world, he offers expert insights into the complexities of wealth management and financial independence.

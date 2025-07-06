@@ -1,0 +1,79 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Icons
+import Plus from "@/components/fundations/icons/Plus.astro";
+const faqs = [
+  {
+    question: "Is my wallet data safe?",
+    answer:
+      "Yes. We never store private keys, and all wallet interactions happen client-side. Your funds stay in your control — always.",
+  },
+  {
+    question: "Do you support multiple chains?",
+    answer:
+      "Absolutely. We’re multi-chain by design, with support for Ethereum, Solana, Base, and more. Swap, stake, and track across ecosystems seamlessly.",
+  },
+  {
+    question: "Can I use this for more than one wallet?",
+    answer:
+      "Yep. Add as many wallets as you want. Cold, hot, hardware — we support them all. Even that one you forgot about in 2021.",
+  },
+  {
+    question: "What happens if I lose access to my wallet?",
+    answer:
+      "We don’t custody funds, so recovery depends on your setup. We highly recommend using hardware wallets, backups, and secure seed storage.",
+  },
+  {
+    question: "Do you collect or sell my data?",
+    answer:
+      "Never. Your data stays on your device or encrypted. No tracking, no creepy analytics, no selling to sketchy ad networks. Period.",
+  },
+  {
+    question: "Can I track DeFi positions and NFTs?",
+    answer:
+      "Yes. We support real-time DeFi position tracking, yield farming dashboards, and NFT overviews — all in one clean interface.",
+  },
+  {
+    question: "Is this only for advanced crypto users?",
+    answer:
+      "Not at all. Whether you’re new to Web3 or managing DAO treasuries, our tools scale with your skill level — no PhD in crypto required.",
+  },
+  {
+    question: "Can I export my data or switch platforms?",
+    answer:
+      "Of course. Your data is yours. Export everything anytime, no questions asked. We're open-source friendly and vendor-lock-in allergic.",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="standardPaddingless" class="border-t-2">
+    <div class="grid grid-cols-1 lg:grid-cols-4 lg:divide-x-2 divide-black">
+      <div class="p-8 bg-accent-200">
+        <Text tag="h2" variant="displayXL" class="font-medium text-black">
+          FAQ
+        </Text>
+        <Text tag="p" variant="textLG" class="mt-4 text-black text-balance">
+          Answers to commonly asked questions about our platform
+        </Text>
+      </div>
+      <div class="divide-y-2 divide-black lg:col-span-3">
+        {
+          faqs.map((faq) => (
+            <details class="p-8 text-left cursor-pointer group">
+              <summary class="flex items-center justify-between w-full text-2xl font-medium text-left text-black select-none  group-open:text-accent-900">
+                {faq.question}
+                <div class="flex items-center justify-center w-8 h-8 border-2 border-black rounded-full transform group-open:-rotate-45 duration-300 ease-out shadow-xs shadow-black group-open:bg-black group-open:text-white">
+                  <Plus class="size-6 " />
+                </div>
+              </summary>
+              <div class="py-4 pt-2 text-xl text-black">{faq.answer}</div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </Wrapper>
+</section>

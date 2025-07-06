@@ -1,0 +1,92 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<BaseLayout hideNav={true} hideFooter={true}>
+  <section>
+    <Wrapper
+      variant="standard"
+      class="flex flex-col items-center justify-center py-24 border-y-2 bg-yellow lg:h-svh"
+    >
+      <div class="w-full max-w-md mx-auto">
+        <Text
+          tag="h2"
+          variant="displayMD"
+          class="font-medium text-center text-black"
+        >
+          Sign up
+        </Text>
+        <form class="mt-6">
+          <input
+            type="text"
+            name="hidden"
+            autocomplete="off"
+            style="display: none"
+            aria-hidden="true"
+            tabindex="-1"
+          />
+          <input type="hidden" name="_redirect" value="#" />
+
+          <div class="space-y-6">
+            <div
+              class="overflow-hidden border-2 border-black shadow divide-y-2 divide-black rounded-xl"
+            >
+              <div>
+                <label for="username" class="sr-only"
+                  >User name or email address</label
+                >
+                <input
+                  id="username"
+                  name="username"
+                  type="text"
+                  placeholder="User name or email address"
+                  autocomplete="username"
+                  required
+                  class="block w-full px-3 py-4 text-xl text-black placeholder-black border-2 border-transparent border-black appearance-none focus:border-black focus:bg-accent-300 focus:outline-none focus:ring-black sm:text-sm"
+                />
+              </div>
+              <div>
+                <label for="password" class="sr-only">Password</label>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  placeholder="Type password here..."
+                  autocomplete="new-password"
+                  required
+                  class="block w-full px-3 py-4 text-xl text-black placeholder-black border-2 border-transparent border-black appearance-none focus:border-black focus:bg-accent-300 focus:outline-none focus:ring-black sm:text-sm"
+                />
+              </div>
+            </div>
+
+            <Button
+              type="submit"
+              size="xl"
+              variant="default"
+              class="w-full mt-8"
+            >
+              Sign up
+            </Button>
+
+            <div>
+              <p class="text-sm text-black lg:text-2xl">
+                Already have a pass?
+                <a
+                  href="/forms/login"
+                  class="ml-3 text-black underline lg:text-2xl hover:text-accent-300"
+                >
+                  Log in now
+                </a>
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </Wrapper>
+  </section>
+
+</BaseLayout>

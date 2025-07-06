@@ -10,48 +10,55 @@ const {
   ...rest
 } = Astro.props;
 const defaultClass = [
-  "text-base-900",
+  "text-black",
   "bg-white",
-  "hover:bg-base-200",
-  "focus:outline-base-200",
+  "shadow-black",
+  "border-black",
+  "hover:bg-accent-300",
+  "focus:bg-black",
+  "focus:text-white",
+ 
+  "focus:shadow-none",
 ];
 const accentClass = [
-  "text-white",
-  "bg-accent-600",
-  "hover:bg-accent-700",
-  "focus:outline-accent-700",
+  "text-black",
+  "bg-accent-200",
+  "shadow-accent-500",
+  "border-accent-500",
+  "hover:bg-accent-300",
+  "focus:bg-accent-500",
+  "focus:text-white",
+ 
+  "focus:shadow-none",
 ];
 const mutedClass = [
-  "text-white",
-  "bg-base-800",
-  "hover:bg-base-700",
-  "focus:outline-base-700",
-];
-const alternativeClass = [
   "text-black",
-  "bg-meshLightBlue",
-  "hover:bg-meshYellow",
-  "focus:outline-white",
+  "bg-white",
+  "shadow-base-300",
+  "border-base-300",
+  "hover:bg-accent-50",
+  "focus:bg-base-300",
+  "focus:shadow-none",
 ];
 // Size
 const sizes = {
-  xxs: ["h-7.5", "px-5", "py-2", "text-xs"],
-  xs: ["h-9", "px-6", "py-3", "text-xs"],
-  sm: ["h-10", "px-6", "py-3", "text-sm"],
-  base: ["h-11", "px-8", "py-4", "text-base"],
-  md: ["h-12", "px-8", "py-4", "text-md"],
-  lg: ["h-13", "px-8", "py-4", "text-lg"],
-  xl: ["h-14", "px-8", "py-4", "text-lg"],
+  xxs: ["h-8", "px-5", "py-2", "text-xs", "shadow-xs"],
+  xs: ["h-9", "px-6", "py-3", "text-xs", "shadow-xs"],
+  sm: ["h-10", "px-6", "py-3", "text-sm", "shadow-sm"],
+  base: ["h-11", "px-8", "py-4", "text-sm", "shadow"],
+  md: ["h-12", "px-8", "py-4", "text-base", "shadow"],
+  lg: ["h-13", "px-8", "py-4", "text-lg", "shadow"],
+  xl: ["h-14", "px-8", "py-4", "text-lg", "shadow"],
 };
 // Icon size
 const iconSizes = {
-  xxs: ["size-7.5", "py-2", "text-xs"],
-  xs: ["size-9", "text-xs"],
-  sm: ["size-10", "text-sm"],
-  base: ["size-11", "text-base"],
-  md: ["size-12", "text-md"],
-  lg: ["size-13", "text-lg"],
-  xl: ["size-14", "text-base"],
+  xxs: ["size-8", "py-2", "text-xs", "shadow-xs"],
+  xs: ["size-9", "text-xs", "shadow-xs"],
+  sm: ["size-10", "text-sm", "shadow-sm"],
+  base: ["size-11", "text-sm", "shadow"],
+  md: ["size-12", "text-md", "shadow"],
+  lg: ["size-13", "text-lg", "shadow"],
+  xl: ["size-14", "text-lg", "shadow"],
 };
 // Gaps
 const gapMap = {
@@ -65,7 +72,6 @@ const variantClass = {
   default: defaultClass,
   accent: accentClass,
   muted: mutedClass,
-  alternative: alternativeClass,
   none: [],
 };
 const sizeClass = iconOnly ? iconSizes[size] : sizes[size] || [];
@@ -73,16 +79,17 @@ const gapClass = !iconOnly && gap ? gapMap[gap] : [];
 const additionalClasses = className ? className.split(" ") : [];
 const baseClass = [
   "flex",
-  "justify-center",
-  "text-center",
-  "font-medium",
-  "items-center",
-  " rounded-full",
-  "transition-colors",
+  "font-semibold",
   "ease-in-out",
+  "text-center",
+  "items-center",
   "duration-500",
-  "focus:outline",
-  "focus:outline-2 outline-inset",
+  "border-2",
+  "rounded-lg",
+  "transition-all",
+  "justify-center",
+  "focus:outline-none",
+  "focus:translate-y-1",
 ];
 ---
 

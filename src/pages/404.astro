@@ -6,38 +6,32 @@ import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 ---
 
-<BaseLayout>
+<BaseLayout hideNav={true} hideFooter={true}>
   <section>
-    <Wrapper variant="standard" class="relative py-32 overflow-hidden lg:py-55">
-      <div
-        class="absolute inset-0 mt-auto -mx-px border-t pointer-events-none bg-base-vertical-stripes h-1/5  border-base-800"
-      >
-      </div>
-      <div class="relative text-center text-balance">
+    <Wrapper
+      variant="standard"
+      class="flex flex-col items-center justify-center py-24 border-y-2 bg-accent-200 lg:h-svh"
+    >
+      <div class="max-w-3xl mx-auto text-center lg:py-32">
         <Text
           tag="h1"
           variant="displayMD"
-          class="tracking-tight text-white font-display"
+          class="font-medium tracking-tight text-black"
         >
-          Well, this is awkward.
+          404 - Page Not Found
         </Text>
-        <Text
-          tag="p"
-          variant="textBase"
-          class="max-w-xl mx-auto mt-4 text-base-400"
-        >
-          The page you’re looking for either vanished, never existed, or decided
-          it was too cool to show up. We respect the hustle.
+        <Text tag="p" variant="textLG" class="mt-4 text-black text-balance">
+          Oops! The page you are looking for cannot be found. It may have been
+          moved, deleted, or never existed. Please check the URL or navigate
+          back to our homepage. If you continue to encounter this issue, feel
+          free to contact our support team for assistance.
         </Text>
-      </div>
-      <div
-        class="relative flex flex-wrap items-center justify-center w-full mt-10 gap-2"
-      >
-        <Button isLink={true} size="sm" variant="default" href="/"
-          >Go to Homepage</Button
-        >
-        <Button isLink={true} size="sm" variant="muted" href="/forms/contact"
-          >Still lost? Contact us</Button
+        <Button
+          isLink={true}
+          href="/"
+          size="xl"
+          variant="default"
+          class="mx-auto mt-8 w-fit">Go back home</Button
         >
       </div>
     </Wrapper>

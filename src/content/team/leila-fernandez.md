@@ -1,6 +1,5 @@
 ---
 name: Leila Fernandez
-bgColor: bg-light-horizontal-stripes
 role: Health & Science Reporter
 bio: |
   Leila Fernandez is a dedicated reporter who explores the intersection of medicine, technology, and global healthcare. With a focus on how innovations in healthcare technology are shaping the future of medicine, she brings attention to critical issues that impact healthcare systems around the world.

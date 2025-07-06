@@ -1,12 +1,10 @@
 ---
-// Assets
-import Cross from "@/components/assets/Cross.astro";
 // Fundations
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Components
-import BlogEntry2 from "@/components/blog/BlogEntry2.astro";
+import BlogEntry from "@/components/blog/BlogEntry.astro";
 // Content
 import { getCollection } from "astro:content";
 export async function getStaticPaths() {
@@ -27,25 +25,25 @@ export async function getStaticPaths() {
 const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
+
 <BaseLayout pageTitle={tag}>
   <section>
-    <Wrapper variant="standard" class="relative pt-32 pb-12">
-      <!-- Top Right Plus -->
-      <Cross class="-top-[0.6rem] -right-[0.65rem] z-51" />
-      <!-- Top left Plus -->
-      <Cross class="-top-[0.6rem] -left-[0.65rem] z-51" />
+    <Wrapper variant="standard" class="py-32 lg:pt-64">
       <div class="max-w-xl text-balance">
         <Text
           tag="h1"
           variant="displayMD"
-          class="tracking-tight text-white font-display"
+          class="font-medium tracking-tight text-black"
         >
           All posts tagged about {tag}
         </Text>
       </div>
+
+      <div
+        class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 gap-y-24"
+      >
+        {posts.map((post) => <BlogEntry post={post} />)}
+      </div>
     </Wrapper>
-    <div class="mt-8 flex flex-col">
-      {posts.map((post) => <BlogEntry2 post={post} />)}
-    </div>
   </section>
 </BaseLayout>

@@ -18,10 +18,10 @@ const breadcrumbs = [
 
 <BaseLayout>
   <section>
-    <Wrapper variant="standard" class="relative pt-32 pb-12 overflow-hidden">
-      <div class="max-w-xl mx-auto text-balance">
+    <Wrapper variant="standard" class="py-32">
+      <div class="flex flex-col justify-between max-w-xl mx-auto text-balance">
         <nav aria-label="Breadcrumb">
-          <ol class="flex items-center text-sm gap-x-2 text-base-400">
+          <ol class="flex items-center text-sm gap-x-2 text-base-600">
             {
               breadcrumbs.map((item, index) => (
                 <>
@@ -29,16 +29,18 @@ const breadcrumbs = [
                     {index < breadcrumbs.length - 1 ? (
                       <a
                         href={item.href}
-                        class="text-xs  hover:text-accent-300"
+                        class="text-xs font-medium hover:text-accent-500 text-base-800"
                       >
                         {item.label}
                       </a>
                     ) : (
-                      <span class="text-xs  text-accent-300">{item.label}</span>
+                      <span class="text-xs font-medium text-black underline">
+                        {item.label}
+                      </span>
                     )}
                   </li>
                   {index < breadcrumbs.length - 1 && (
-                    <li class="text-base-400">
+                    <li class="text-black">
                       <ChevronRight size="sm" />
                     </li>
                   )}
@@ -47,10 +49,14 @@ const breadcrumbs = [
             }
           </ol>
         </nav>
-        <Text tag="h1" variant="displayMD" class="mt-12 text-white">
+        <Text
+          tag="h1"
+          variant="displaySM"
+          class="font-medium tracking-tight text-base-900 mt-12"
+        >
           {frontmatter.page}
         </Text>
-        <Text variant="textBase" class="mt-4 text-base-500">
+        <Text tag="p" variant="textBase" class="mt-4 text-black">
           Published on <span>
             <time
               datetime={new Date(frontmatter.pubDate).toLocaleDateString(
@@ -70,15 +76,19 @@ const breadcrumbs = [
             ></span
           >
         </Text>
-        <div
-          class={`aspect-12/4 p-4 mt-8 -mx-px ${frontmatter.bgColor} h-full `}
-        >
-        </div>
+        <Image
+          width={1000}
+          height={800}
+          alt={frontmatter.image.alt}
+          src={frontmatter.image.url}
+          class="object-cover object-center mt-8 size-full max-h-96 lg:col-span-2 rounded-xl"
+        />
       </div>
-
-      <Wrapper variant="prose" class="max-w-xl mx-auto mt-8">
+      <Wrapper variant="prose" class="max-w-xl mx-auto mt-12">
         <slot />
       </Wrapper>
     </Wrapper>
+  
+   
   </section>
 </BaseLayout>

@@ -1,0 +1,50 @@
+---
+// Fundations
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Components
+import ChangelogEntry from "@/components/changelog/ChangelogEntry.astro";
+// Content
+import { getCollection } from "astro:content";
+const allUpdatesUnsorted = await getCollection("changelog");
+// Sort the posts in descending order by publication date (newest to oldest)
+const allUpdates = allUpdatesUnsorted.sort(
+  (a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate)
+);
+---
+
+<BaseLayout>
+  <section>
+    <Wrapper variant="standard" class="bg-yellow py-32">
+      <div class="grid grid-cols-1 lg:grid-cols-3">
+        <div class="lg:sticky lg:top-32 lg:self-start">
+          <Text
+            tag="h1"
+            variant="displayLG"
+            class="font-medium tracking-tight text-black"
+          >
+            The stuff we broke
+          </Text>
+          <Text tag="p" variant="textXL" class="mt-4 text-black text-balance">
+            Release notes, feature drops, and bug banishments — all in one
+            place.
+          </Text>
+          <Button
+            isLink={true}
+            href="/forms/contact"
+            size="xl"
+            variant="default"
+            class="mt-8 w-fit">Contact support</Button
+          >
+        </div>
+
+        <div class="flex flex-col gap-8 lg:col-span-2">
+          {allUpdates.map((post) => <ChangelogEntry post={post} />)}
+        </div>
+      </div>
+    </Wrapper>
+  </section>
+</BaseLayout>

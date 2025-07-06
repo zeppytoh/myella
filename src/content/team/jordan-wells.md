@@ -1,6 +1,5 @@
 ---
 name: Jordan Wells
-bgColor: bg-base-vertical-stripes
 role: Digital Sports Editor
 bio: |
   Jordan Wells is an expert in sports innovation and technology, focusing on how digital platforms and streaming services are reshaping the fan experience. With a background in both sports journalism and tech, he brings a unique perspective to the evolving world of sports media.
