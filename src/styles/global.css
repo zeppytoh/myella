@@ -4,7 +4,8 @@
 @plugin "tailwind-scrollbar-hide";
 @theme {
  /* Typography */
- --font-sans: "Bricolage Grotesque", sans-serif;
+ --font-sans: "Noto Sans JP", sans-serif;
+ --font-display: "Kosugi Maru", sans-serif;
  /* Colors */
  --color-black: #141520;
   --color-green: #c1d2d8;

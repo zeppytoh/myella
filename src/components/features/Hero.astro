@@ -1,14 +1,14 @@
 ---
 // Assets
-import { Image } from "astro:assets";
 import Blob1 from "@/images/blobs/blob1.svg";
 import Blob2 from "@/images/blobs/blob2.svg";
 import Blob3 from "@/images/blobs/blob3.svg";
 import Blob4 from "@/images/blobs/blob4.svg";
+import { Image } from "astro:assets";
 // Fundations
-import Text from "@/components/fundations/elements/Text.astro";
-import Button from "@/components/fundations/elements/Button.astro";
-import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Wrapper from "@/components/foundations/containers/Wrapper.astro";
+import Button from "@/components/foundations/elements/Button.astro";
+import Text from "@/components/foundations/elements/Text.astro";
 ---
 
 <section class="relative overflow-hidden">
@@ -23,7 +23,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
       decoding="async"
       src={Blob1}
       alt="#_"
-      class="absolute hidden rounded-full  lg:block shadow-black size-84 -bottom-24 right-20"
+      class="absolute hidden rounded-full lg:block shadow-black size-84 -bottom-24 right-20"
     />
     <Image
       width={800}
@@ -32,7 +32,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
       decoding="async"
       src={Blob2}
       alt="#_"
-      class="absolute hidden rounded-full  lg:block shadow-black size-84 bottom-32 -right-32"
+      class="absolute hidden rounded-full lg:block shadow-black size-84 bottom-32 -right-32"
     />
     <Image
       width={800}
@@ -41,7 +41,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
       decoding="async"
       src={Blob3}
       alt="#_"
-      class="absolute hidden rounded-full  lg:block shadow-black size-84 -bottom-20 left-32"
+      class="absolute hidden rounded-full lg:block shadow-black size-84 -bottom-20 left-32"
     />
     <Image
       width={800}
@@ -50,26 +50,25 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
       decoding="async"
       src={Blob4}
       alt="#_"
-      class="absolute hidden rounded-full  lg:block shadow-black size-100 bottom-24 -left-20"
+      class="absolute hidden rounded-full lg:block shadow-black size-100 bottom-24 -left-20"
     />
 
     <div class="relative max-w-xl mx-auto text-center">
-      <Text tag="h1" variant="displayLG" class="font-medium text-black">
-        Pioneering the future of <span class="md:block"
-          >decentralized finance
-        </span>
+      <Text
+        tag="h1"
+        variant="displayLG"
+        class="font-display font-extrabold text-black"
+        >一生の友と、<span class="md:block">一生の成長を。</span>
       </Text>
       <Text tag="p" variant="textBase" class="mt-4 text-black text-balance">
-        Join us on our journey to transform the financial landscape with
-        cutting-edge cryptocurrency solutions and groundbreaking blockchain
-        technologies.
+        この世界で生きる私たちは、ときに自分を見失いそうになることがあります。そんなあなたに、ずっとそばで見守り、支え続けてくれる存在がいることを知ってほしいのです。
       </Text>
       <Button
         isLink={true}
         href="/"
         size="xl"
         variant="default"
-        class="mx-auto mt-8 w-fit">Get started</Button
+        class="mx-auto mt-8 w-fit">すぐ始まる</Button
       >
     </div>
   </Wrapper>

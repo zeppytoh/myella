@@ -1,10 +1,10 @@
 ---
 // Assets
-import { Image } from "astro:assets";
 import Collab from "@/images/assets/collab.svg";
+import { Image } from "astro:assets";
 // Fundations
-import Text from "@/components/fundations/elements/Text.astro";
-import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import Wrapper from "@/components/foundations/containers/Wrapper.astro";
+import Text from "@/components/foundations/elements/Text.astro";
 const features = [
   {
     title: "Secure Wallets",
@@ -29,9 +29,9 @@ const features = [
     <Text
       tag="h2"
       variant="displayXL"
-      class="font-medium text-center text-black"
+      class="font-medium font-display text-center text-black"
     >
-      Navigating the digital financial frontier
+      デジファイナンスの未来を共に築く
     </Text>
     <Image
       width={800}
