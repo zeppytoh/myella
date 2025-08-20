@@ -1,12 +1,12 @@
-# .pages.yml — Pages CMS config for: team, store, gallery, posts, infopages
-# Images live in src/images/{assets,blog,gallery,store,team}
+# .pages.yml — Pages CMS config
+# Images live in src/images/{assets,blobs,blog,brands,changelog,customers,integrations,team}
 
 media:
   name: images
   label: Images
   input: src/images
   output: src/images
-  path: ""                          # start picker at /src/images
+  path: ""                      # start at /src/images
   extensions: [png, jpg, jpeg, webp, svg]
 
 settings:
@@ -34,7 +34,7 @@ content:
         label: Image
         type: object
         fields:
-          - { name: url, label: Image, type: image, options: { media: images, path: team } }  # src/images/team
+          - { name: url, label: Image, type: image, options: { media: images, path: team } }   # src/images/team
           - { name: alt, label: Alt text, type: string }
       - name: socials
         label: Socials
@@ -47,83 +47,113 @@ content:
       - { name: body, label: Body, type: rich-text }
 
   # ---------------------
-  # STORE
+  # CUSTOMERS
   # ---------------------
-  - name: store
-    label: Store
+  - name: customers
+    label: Customers
     type: collection
-    path: src/content/store
+    path: src/content/customers
     filename: "{primary}.md"
     view:
-      primary: title
-      fields: [title, price]
-      sort: [title]
+      primary: customer
+      fields: [customer]
+      sort: [customer]
     fields:
-      - { name: price,  label: Price, type: string }
-      - { name: title,  label: Title, type: string, required: true }
-      - { name: checkout, label: Checkout URL, type: string }
-      - { name: license,  label: License, type: string }
-      - { name: highlights, label: Highlights, type: string, list: true }
-      - name: specifications
-        label: Specifications
-        type: list
-        fields:
-          - { name: name,  label: Name,  type: string }
-          - { name: value, label: Value, type: string }
-      - { name: description, label: Description, type: text }
-      - name: image
-        label: Main Image
+      - { name: customer,   label: Customer, type: string, required: true }
+      - { name: ctaTitle,   label: CTA Title, type: string }
+      - { name: testimonial,label: Testimonial, type: text }
+      - { name: partnership,label: Partnership, type: string }
+      - name: avatar
+        label: Avatar
         type: object
         fields:
-          - { name: url, label: Image, type: image, options: { media: images, path: store } }  # src/images/store
+          - { name: url, label: Image, type: image, options: { media: images, path: customers } }  # src/images/customers
           - { name: alt, label: Alt text, type: string }
-      - name: images
-        label: Gallery
+      - name: challengesAndSolutions
+        label: Challenges & Solutions
+        type: object
+        list: true
+        fields:
+          - { name: title,   label: Title,   type: string }
+          - { name: content, label: Content, type: text }
+      - name: results
+        label: Results
+        type: string
+        list: true
+      - { name: about,   label: About,   type: text }
+      # 'details' is a record in your schema; model it as key/value pairs
+      - name: details
+        label: Details
         type: list
         fields:
-          - { name: url, label: Image, type: image, options: { media: images, path: store } }
-          - { name: alt, label: Alt text, type: string }
-      - name: faq
-        label: FAQ
-        type: list
+          - { name: key,   label: Key,   type: string }
+          - { name: value, label: Value, type: string }
+      - name: logo
+        label: Logo
+        type: object
         fields:
-          - { name: question, label: Question, type: string }
-          - { name: answer,   label: Answer,   type: text }
+          - { name: url, label: Image, type: image, options: { media: images, path: customers } }
+          - { name: alt, label: Alt text, type: string }
       - { name: body, label: Body, type: rich-text }
 
   # ---------------------
-  # GALLERY
+  # INTEGRATIONS
   # ---------------------
-  - name: gallery
-    label: Gallery
+  - name: integrations
+    label: Integrations
     type: collection
-    path: src/content/gallery
+    path: src/content/integrations
     filename: "{primary}.md"
     view:
-      primary: title
-      fields: [title, category]
-      sort: [title]
+      primary: integration
+      fields: [integration, email]
+      sort: [integration]
     fields:
-      - { name: category,  label: Category,  type: string }
-      - { name: bgColor,   label: Background Color, type: string }
-      - { name: textColor, label: Text Color, type: string }
-      - { name: title,     label: Title, type: string, required: true }
-      - { name: description, label: Description, type: text }
-      - name: thumbnail
-        label: Thumbnail
-        type: object
-        fields:
-          - { name: url, label: Image, type: image, options: { media: images, path: gallery } } # src/images/gallery
-          - { name: alt, label: Alt text, type: string }
-      - { name: thumbnailClass, label: Thumbnail Class, type: string }
-      - { name: imageGrid,      label: Image Grid Class, type: string }
-      - name: images
-        label: Gallery Images
+      - { name: email,       label: Contact Email, type: string }
+      - { name: integration, label: Integration,   type: string, required: true }
+      - { name: description, label: Description,   type: text }
+      - name: permissions
+        label: Permissions
+        type: string
+        list: true
+      - name: details
+        label: Details
         type: list
         fields:
-          - { name: url,   label: Image, type: image, options: { media: images, path: gallery } }
-          - { name: alt,   label: Alt text, type: string }
-          - { name: class, label: CSS Class, type: string }
+          - { name: title, label: Title, type: string }
+          - { name: value, label: Value, type: string }
+          - { name: url,   label: URL,   type: string }
+      - name: logo
+        label: Logo
+        type: object
+        fields:
+          - { name: url, label: Image, type: image, options: { media: images, path: integrations } } # src/images/integrations
+          - { name: alt, label: Alt text, type: string }
+      - { name: tags, label: Tags, type: string, list: true }
+
+  # ---------------------
+  # CHANGELOG
+  # ---------------------
+  - name: changelog
+    label: Changelog
+    type: collection
+    path: src/content/changelog
+    filename: "{primary}.md"
+    view:
+      primary: page
+      fields: [page, pubDate]
+      sort: [pubDate]
+      default: { sort: pubDate, order: desc }
+    fields:
+      - { name: page,        label: Page,        type: string, required: true }
+      - { name: description, label: Description, type: text }
+      - { name: pubDate,     label: Publication Date, type: date }
+      - name: image
+        label: Image
+        type: object
+        fields:
+          - { name: url, label: Image, type: image, options: { media: images, path: changelog } } # src/images/changelog
+          - { name: alt, label: Alt text, type: string }
       - { name: body, label: Body, type: rich-text }
 
   # ---------------------
@@ -145,12 +175,41 @@ content:
       - { name: description, label: Description, type: text }
       - { name: team,        label: Team, type: string }
       - name: image
-        label: Post Image
+        label: Cover Image
         type: object
         fields:
           - { name: url, label: Image, type: image, options: { media: images, path: blog } }   # src/images/blog
           - { name: alt, label: Alt text, type: string }
       - { name: tags, label: Tags, type: string, list: true }
+      - { name: body, label: Body, type: rich-text }
+
+  # ---------------------
+  # HELP CENTER
+  # ---------------------
+  - name: helpcenter
+    label: Help Center
+    type: collection
+    path: src/content/helpcenter
+    filename: "{primary}.md"
+    view:
+      primary: page
+      fields: [page]
+      sort: [page]
+    fields:
+      - { name: page,        label: Page,        type: string, required: true }
+      - { name: description, label: Description, type: text }
+      - { name: category,    label: Category,    type: string }
+      - name: keywords
+        label: Keywords
+        type: string
+        list: true
+      - { name: lastUpdated, label: Last Updated, type: string }
+      - name: faq
+        label: FAQ
+        type: list
+        fields:
+          - { name: question, label: Question, type: string }
+          - { name: answer,   label: Answer,   type: text }
       - { name: body, label: Body, type: rich-text }
 
   # ---------------------
